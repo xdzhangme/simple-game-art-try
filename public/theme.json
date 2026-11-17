@@ -1,0 +1,16 @@
+{
+  "outline": "#7b88a3",
+  "wall": "#f2f5f8",
+  "floor": "#c8d7df",
+  "grid": "#c3d1da",
+  "accent": "#6f86a8",
+  "accentDark": "#4a5d7c",
+  "panel": "#eaf0f4",
+  "panelDark": "#c3d1da",
+  "marker": "#e8b84a",
+  "done": "#4fa95c",
+  "locked": "#b2bac6",
+  "lockedOutline": "#7a8498",
+  "ink": "#2c3855",
+  "onAccent": "#ffffff"
+}
