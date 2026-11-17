@@ -8,6 +8,7 @@ import { createMapView } from './tilemap.js';
 import useCases from './data/use-cases.json';
 import { drawInteractables, loadObjects, nearestInteractable } from './interactables.js';
 import { initRules } from './rules.js';
+import { drawProp, propBase } from './art/atlas.js';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -54,7 +55,7 @@ initRules(window, () => active, () => !gamePanel.hidden);
 function playerColors() {
   const css = getComputedStyle(document.documentElement);
   const v = (name) => css.getPropertyValue(name).trim();
-  return { outline: v('--ink'), skin: v('--wall'), body: v('--accent'), legs: v('--accent-dark'), marker: v('--marker') };
+  return { outline: v('--ink'), marker: v('--marker') };
 }
 
 const mapView = createMapView(
@@ -63,8 +64,20 @@ const mapView = createMapView(
   officeMap,
   (ctx, camX, camY) => {
     const colors = playerColors();
+    const t = officeMap.tileSize;
+    const props = (officeMap.props ?? []).filter((p) => {
+      const x = p.x * t - camX;
+      const y = (p.y + (p.h ?? 1)) * t - camY;
+      return x > -80 && x < 1400 && y > -8 && y < 1400;
+    });
+    // rugs lie on the floor; everything else is depth-sorted with the player by its base line
+    props.filter((p) => p.layer === 'floor').forEach((p) => drawProp(ctx, officeMap, p, camX, camY));
+    const sorted = props.filter((p) => p.layer !== 'floor').sort((a, b) => propBase(officeMap, a) - propBase(officeMap, b));
+    let i = 0;
+    for (; i < sorted.length && propBase(officeMap, sorted[i]) <= player.y; i++) drawProp(ctx, officeMap, sorted[i], camX, camY);
+    drawPlayer(ctx, player, camX, camY);
+    for (; i < sorted.length; i++) drawProp(ctx, officeMap, sorted[i], camX, camY);
     drawInteractables(ctx, officeMap, objects, active, camX, camY, colors);
-    drawPlayer(ctx, player, camX, camY, colors);
   },
 );
 loadTheme();

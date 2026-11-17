@@ -1,4 +1,6 @@
-// Tile map renderer and camera. Tiles are drawn as placeholders from theme CSS variables.
+// Tile map renderer and camera. Tiles come from the indexed sprite atlas (src/art).
+import { currentPalette, drawTile } from './art/atlas.js';
+
 export const SCALE = 2;
 
 export function mapSize(map) {
@@ -20,50 +22,22 @@ export function tileAt(map, col, row) {
   return ch === undefined ? 'void' : map.legend[ch] ?? 'void';
 }
 
-function palette() {
-  const css = getComputedStyle(document.documentElement);
-  const v = (name) => css.getPropertyValue(name).trim();
-  return {
-    wall: v('--wall'),
-    outline: v('--outline'),
-    floor: v('--floor'),
-    grid: v('--grid'),
-    door: v('--marker'),
-    ink: v('--ink'),
-  };
-}
-
-function drawTile(ctx, kind, px, py, t, c) {
-  if (kind === 'void') return;
-  if (kind === 'wall') {
-    ctx.fillStyle = c.wall;
-    ctx.fillRect(px, py, t, t);
-    ctx.fillStyle = c.outline;
-    ctx.fillRect(px, py + t - 2, t, 2);
-    return;
-  }
-  ctx.fillStyle = kind === 'door' ? c.door : c.floor;
-  ctx.fillRect(px, py, t, t);
-  ctx.fillStyle = c.grid;
-  ctx.fillRect(px, py, t, 1);
-  ctx.fillRect(px, py, 1, t);
-}
-
 // Draws the visible tiles; the canvas bitmap is the unscaled view (CSS applies SCALE).
 export function drawMap(ctx, map, camera, view) {
   const t = map.tileSize;
-  const c = palette();
+  const c = currentPalette();
   const camX = Math.round(camera.x);
   const camY = Math.round(camera.y);
   ctx.fillStyle = c.ink;
   ctx.fillRect(0, 0, view.width, view.height);
+  const kindAt = (col, row) => tileAt(map, col, row);
   const col0 = Math.max(0, Math.floor(camX / t));
   const row0 = Math.max(0, Math.floor(camY / t));
   const col1 = Math.min(map.tiles[0].length - 1, Math.floor((camX + view.width) / t));
   const row1 = Math.min(map.tiles.length - 1, Math.floor((camY + view.height) / t));
   for (let row = row0; row <= row1; row++) {
     for (let col = col0; col <= col1; col++) {
-      drawTile(ctx, tileAt(map, col, row), col * t - camX, row * t - camY, t, c);
+      drawTile(ctx, map, kindAt, col, row, col * t - camX, row * t - camY);
     }
   }
 }

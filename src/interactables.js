@@ -1,3 +1,4 @@
+import { sprite } from './art/atlas.js';
 // Interactable map objects: each one is bound to a use case id and offers an E prompt within 1 tile.
 const RANGE = 1; // tiles
 
@@ -33,27 +34,24 @@ export function nearestInteractable(map, objects, player) {
   return best;
 }
 
-// Placeholder markers; the E prompt is drawn above the object that is in range.
+// Yellow "!" bubble over each bound object (the object art itself is a map prop);
+// the E prompt is drawn above the object that is in range.
 export function drawInteractables(ctx, map, objects, active, camX, camY, colors) {
   const t = map.tileSize;
+  const bubble = sprite('bubble');
   for (const o of objects) {
-    const px = o.x * t - camX;
-    const py = o.y * t - camY;
-    ctx.fillStyle = colors.outline;
-    ctx.fillRect(px + 2, py + 2, t - 4, t - 4);
-    ctx.fillStyle = colors.marker;
-    ctx.fillRect(px + 3, py + 3, t - 6, t - 6);
+    ctx.drawImage(bubble, Math.round(o.x * t - camX + t / 2 - 6), Math.round(o.y * t - camY - 24));
   }
   if (!active) return;
   const px = active.x * t - camX + t / 2;
-  const py = active.y * t - camY - 4;
+  const py = active.y * t - camY - 24;
   ctx.fillStyle = colors.outline;
-  ctx.fillRect(px - 6, py - 12, 12, 12);
+  ctx.fillRect(px - 6, py - 14, 12, 12);
   ctx.fillStyle = colors.marker;
-  ctx.fillRect(px - 5, py - 11, 10, 10);
+  ctx.fillRect(px - 5, py - 13, 10, 10);
   ctx.fillStyle = colors.outline;
   ctx.font = '12px "Jersey 10", monospace';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText('E', px, py - 2);
+  ctx.fillText('E', px, py - 4);
 }
