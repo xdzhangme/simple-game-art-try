@@ -1,10 +1,9 @@
 import { config } from './config.js';
 import { applyI18n, setLang } from './i18n.js';
+import { initLibrary } from './library.js';
 import { loadTheme } from './theme.js';
 import officeMap from './data/office-map.json';
 import { createMapView } from './tilemap.js';
-
-loadTheme();
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -39,6 +38,7 @@ const dialog = document.getElementById('disclaimer-dialog');
 document.getElementById('disclaimer-btn').addEventListener('click', () => dialog.showModal());
 document.getElementById('disclaimer-close').addEventListener('click', () => dialog.close());
 
+initLibrary(document.getElementById('library-list'));
 applyI18n();
 
 const mapView = createMapView(document.getElementById('game'), document.getElementById('viewport'), officeMap);

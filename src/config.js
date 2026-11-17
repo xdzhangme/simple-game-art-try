@@ -2,4 +2,5 @@
 export const config = {
   companyName: 'Example company',
   badge: 'EXA',
+  coworkUrl: 'https://copilot.microsoft.com/',
 };
