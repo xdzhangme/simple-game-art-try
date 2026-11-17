@@ -1,3 +1,7 @@
+import { loadTheme } from './theme.js';
+
+loadTheme();
+
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
