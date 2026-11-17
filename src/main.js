@@ -5,6 +5,9 @@ import { loadTheme } from './theme.js';
 import officeMap from './data/office-map.json';
 import { createPlayer, drawPlayer } from './player.js';
 import { createMapView } from './tilemap.js';
+import useCases from './data/use-cases.json';
+import { drawInteractables, loadObjects, nearestInteractable } from './interactables.js';
+import { initRules } from './rules.js';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -44,18 +47,25 @@ applyI18n();
 
 const gamePanel = document.getElementById('panel-game');
 const player = createPlayer(officeMap, () => !gamePanel.hidden);
+const objects = loadObjects(officeMap, useCases);
+let active = null;
+initRules(window, () => active, () => !gamePanel.hidden);
 
 function playerColors() {
   const css = getComputedStyle(document.documentElement);
   const v = (name) => css.getPropertyValue(name).trim();
-  return { outline: v('--ink'), skin: v('--wall'), body: v('--accent'), legs: v('--accent-dark') };
+  return { outline: v('--ink'), skin: v('--wall'), body: v('--accent'), legs: v('--accent-dark'), marker: v('--marker') };
 }
 
 const mapView = createMapView(
   document.getElementById('game'),
   document.getElementById('viewport'),
   officeMap,
-  (ctx, camX, camY) => drawPlayer(ctx, player, camX, camY, playerColors()),
+  (ctx, camX, camY) => {
+    const colors = playerColors();
+    drawInteractables(ctx, officeMap, objects, active, camX, camY, colors);
+    drawPlayer(ctx, player, camX, camY, colors);
+  },
 );
 loadTheme();
 
