@@ -8,8 +8,9 @@ import { createMapView } from './tilemap.js';
 import useCases from './data/use-cases.json';
 import { drawInteractables, loadObjects, nearestInteractable } from './interactables.js';
 import { initRules } from './rules.js';
-import { drawProp, propBase } from './art/atlas.js';
+import { drawProp, propBase, sprite } from './art/atlas.js';
 import { initCardPanel } from './panel.js';
+import { isCompleted, onProgressChange } from './progress.js';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -54,6 +55,34 @@ let active = null;
 initRules(window, () => active, () => !gamePanel.hidden);
 initCardPanel(document.getElementById('card'), useCases);
 
+// Each bound object has a reward item two tiles to its right: grey silhouette until the case is finished.
+const rewardProps = objects
+  .map((o) => {
+    const rewardId = useCases.find((u) => u.id === o.useCaseId)?.rewardId;
+    return rewardId && sprite(`reward-${rewardId}`) ? { useCaseId: o.useCaseId, sprite: `reward-${rewardId}`, x: o.x + 2, y: o.y, w: 1, h: 1 } : null;
+  })
+  .filter(Boolean);
+const SPARKLE_MS = 1200;
+const sparkles = new Map();
+onProgressChange((e) => {
+  if (e.type === 'complete') sparkles.set(e.useCaseId, performance.now());
+  else sparkles.clear();
+});
+
+// Short pixel sparkle: four 2px stars twinkling outward around a freshly unlocked reward.
+function drawSparkle(ctx, map, p, camX, camY, age) {
+  const t = map.tileSize;
+  const cx = Math.round(p.x * t + t / 2 - camX);
+  const cy = Math.round((p.y + 1) * t - t / 2 - camY);
+  const r = 6 + Math.round(age * 10);
+  const on = Math.floor(age * 12) % 2 === 0;
+  ctx.fillStyle = playerColors().marker;
+  [[-r, -r], [r - 2, -r], [-r, r - 2], [r - 2, r - 2]].forEach(([dx, dy]) => {
+    ctx.fillRect(cx + dx, cy + dy, 2, 2);
+    if (on) ctx.fillRect(cx + dx - 1, cy + dy + 0, 4, 2);
+  });
+}
+
 function playerColors() {
   const css = getComputedStyle(document.documentElement);
   const v = (name) => css.getPropertyValue(name).trim();
@@ -79,6 +108,16 @@ const mapView = createMapView(
     for (; i < sorted.length && propBase(officeMap, sorted[i]) <= player.y; i++) drawProp(ctx, officeMap, sorted[i], camX, camY);
     drawPlayer(ctx, player, camX, camY);
     for (; i < sorted.length; i++) drawProp(ctx, officeMap, sorted[i], camX, camY);
+    const now = performance.now();
+    rewardProps.forEach((p) => {
+      const x = p.x * t - camX;
+      const y = p.y * t - camY;
+      if (x < -40 || x > 1400 || y < -40 || y > 1400) return;
+      const unlocked = isCompleted(p.useCaseId);
+      drawProp(ctx, officeMap, p, camX, camY, { locked: !unlocked });
+      const at = sparkles.get(p.useCaseId);
+      if (unlocked && at !== undefined && now - at < SPARKLE_MS) drawSparkle(ctx, officeMap, p, camX, camY, (now - at) / SPARKLE_MS);
+    });
     drawInteractables(ctx, officeMap, objects, active, camX, camY, colors);
   },
 );

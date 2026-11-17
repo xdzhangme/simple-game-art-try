@@ -1,18 +1,7 @@
 import { renderCard } from './card.js';
 import { onLangChange, pick, t } from './i18n.js';
+import { completeUseCase, completedIds, isCompleted, onProgressChange, progressCounts } from './progress.js';
 import { OPEN_USE_CASE } from './rules.js';
-
-const PROGRESS_KEY = 'progress';
-
-// Completed use case ids as stored by the progress feature; empty when nothing is saved.
-function completedIds() {
-  try {
-    const v = JSON.parse(localStorage.getItem(PROGRESS_KEY));
-    return Array.isArray(v) ? v : [];
-  } catch {
-    return [];
-  }
-}
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -36,6 +25,7 @@ export function initCardPanel(container, useCases, target = window) {
 
   function idleView() {
     const done = new Set(completedIds());
+    const counts = progressCounts(useCases);
     const cases = useCases.filter((u) => done.has(u.id));
     const next = useCases.find((u) => !done.has(u.id));
     const view = el('div', 'gp-idle');
@@ -45,7 +35,8 @@ export function initCardPanel(container, useCases, target = window) {
 
     body.append(
       el('h4', 'uc-label', t('panel.progress')),
-      el('p', 'gp-progress', `${cases.length} / ${useCases.length} ${t('panel.completed')}`),
+      el('p', 'gp-progress', `${counts.completed} / ${counts.total} ${t('panel.completed')}`),
+      el('p', 'gp-progress', `${counts.rewards} / ${counts.total} ${t('panel.unlocked')}`),
       el('h4', 'uc-label', t('panel.rewards')),
     );
     if (cases.length) {
@@ -73,7 +64,16 @@ export function initCardPanel(container, useCases, target = window) {
     const close = el('button', 'px-btn', t('panel.close'));
     close.type = 'button';
     close.addEventListener('click', closeCard);
-    container.append(renderCard(useCase, { actions: [close] }));
+    const finish = el('button', 'px-btn px-btn--primary');
+    finish.type = 'button';
+    if (isCompleted(useCase.id)) {
+      finish.textContent = t('panel.finished');
+      finish.disabled = true;
+    } else {
+      finish.textContent = t('panel.finish');
+      finish.addEventListener('click', () => completeUseCase(useCase.id));
+    }
+    container.append(renderCard(useCase, { actions: [finish, close] }));
   }
 
   function closeCard() {
@@ -91,6 +91,7 @@ export function initCardPanel(container, useCases, target = window) {
     if (e.key === 'Escape' && openId && !document.querySelector('dialog[open]')) closeCard();
   });
   onLangChange(render);
+  onProgressChange(render);
   render();
   return { close: closeCard };
 }
