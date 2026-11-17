@@ -203,9 +203,6 @@ button:focus-visible {
 
 #game {
   display: block;
-  width: min(100%, 640px);
-  aspect-ratio: 4 / 3;
-  background: #1a1c2c;
   image-rendering: pixelated;
 }
 
@@ -223,3 +220,23 @@ dialog h2 {
 dialog .dis {
   margin-left: 0;
 }
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 68fr 32fr;
+  gap: 12px;
+  height: 70vh;
+  min-height: 360px;
+}
+
+.game-viewport {
+  overflow: hidden;
+  min-width: 0;
+  background: #1a1c2c;
+}
+
+.game-card {
+  padding: 12px;
+  overflow: auto;
+}
+

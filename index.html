@@ -27,8 +27,10 @@
 
     <main>
       <section role="tabpanel" id="panel-game" aria-labelledby="tab-game">
-        <canvas id="game" width="320" height="240"></canvas>
-        <p class="placeholder" data-i18n="game.placeholder"></p>
+        <div class="game-layout">
+          <div class="game-viewport" id="viewport"><canvas id="game"></canvas></div>
+          <aside class="game-card px-panel" id="card"><p class="placeholder" data-i18n="game.placeholder"></p></aside>
+        </div>
       </section>
       <section role="tabpanel" id="panel-library" aria-labelledby="tab-library" hidden>
         <p class="placeholder" data-i18n="library.placeholder"></p>
