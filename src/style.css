@@ -223,3 +223,12 @@ dialog h2 {
 dialog .dis {
   margin-left: 0;
 }
+
+[data-content] {
+  max-width: 640px;
+}
+
+[data-content] h2 {
+  margin-top: 0;
+}
+

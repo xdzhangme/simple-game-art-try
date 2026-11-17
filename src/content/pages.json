@@ -1,0 +1,60 @@
+{
+  "en": {
+    "start": {
+      "title": "How to start",
+      "intro": "Pick one small task and try an AI assistant on it today.",
+      "steps": [
+        "Choose a routine task that takes you 15 to 30 minutes, such as summarising notes or drafting an email.",
+        "Open an approved AI assistant and describe the task, the audience and the format you want.",
+        "Review the answer critically, correct mistakes and ask follow-up questions to improve it.",
+        "Share what worked with your team so others can reuse it."
+      ]
+    },
+    "rai": {
+      "title": "Responsible AI",
+      "intro": "Use AI in a way that is safe, fair and transparent.",
+      "steps": [
+        "Never enter confidential, personal or customer data into tools that are not approved.",
+        "You remain responsible for the result: always check facts, numbers and sources.",
+        "Be open about where AI helped, especially when work is shared outside your team.",
+        "Watch for biased or unfair output and report concerns to your manager."
+      ]
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "paragraphs": [
+        "This site offers general inspiration and guidance about using AI at work. It is not legal, compliance or professional advice.",
+        "Always follow your organisation's policies and applicable laws when using AI tools."
+      ]
+    }
+  },
+  "nl": {
+    "start": {
+      "title": "Hoe te beginnen",
+      "intro": "Kies één kleine taak en probeer er vandaag een AI-assistent bij.",
+      "steps": [
+        "Kies een routinetaak van 15 tot 30 minuten, zoals aantekeningen samenvatten of een e-mail opstellen.",
+        "Open een goedgekeurde AI-assistent en beschrijf de taak, het publiek en het gewenste formaat.",
+        "Beoordeel het antwoord kritisch, verbeter fouten en stel vervolgvragen om het te verfijnen.",
+        "Deel wat werkte met je team, zodat anderen het kunnen hergebruiken."
+      ]
+    },
+    "rai": {
+      "title": "Verantwoorde AI",
+      "intro": "Gebruik AI op een veilige, eerlijke en transparante manier.",
+      "steps": [
+        "Voer nooit vertrouwelijke, persoonlijke of klantgegevens in bij tools die niet zijn goedgekeurd.",
+        "Jij blijft verantwoordelijk voor het resultaat: controleer altijd feiten, cijfers en bronnen.",
+        "Wees open over waar AI heeft geholpen, vooral als werk buiten je team wordt gedeeld.",
+        "Let op bevooroordeelde of oneerlijke uitkomsten en meld zorgen bij je leidinggevende."
+      ]
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "paragraphs": [
+        "Deze site biedt algemene inspiratie en richtlijnen over het gebruik van AI op het werk. Het is geen juridisch, compliance- of professioneel advies.",
+        "Volg bij het gebruik van AI-tools altijd het beleid van je organisatie en de geldende wetgeving."
+      ]
+    }
+  }
+}
