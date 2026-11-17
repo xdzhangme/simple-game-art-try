@@ -1,0 +1,158 @@
+[
+  {
+    "id": "finance-variance-summary",
+    "icon": "chart",
+    "rewardId": "plant-fern",
+    "title": { "en": "Monthly variance summary", "nl": "Maandelijkse afwijkingssamenvatting" },
+    "summary": {
+      "en": "Turn a budget-vs-actuals sheet into a short narrative.",
+      "nl": "Zet een begroting-versus-werkelijk-overzicht om in een korte toelichting."
+    },
+    "meta": {
+      "department": "finance",
+      "role": "Financial analyst",
+      "workload": "medium",
+      "credits": 3,
+      "executionMode": "local",
+      "capability": "files",
+      "collaborationScope": "individual"
+    },
+    "prompt": {
+      "en": "Read {{file}} and summarize the top {{count}} variances between budget and actuals in plain language.",
+      "nl": "Lees {{file}} en vat de {{count}} grootste afwijkingen tussen begroting en werkelijk in gewone taal samen."
+    },
+    "seeItRun": {
+      "en": ["Cowork opens the sheet.", "It ranks variances by size.", "It drafts a one-page summary."],
+      "nl": ["Cowork opent het overzicht.", "Het rangschikt afwijkingen op omvang.", "Het schrijft een samenvatting van een pagina."]
+    },
+    "fitIntoWork": {
+      "en": "Swap in your own report and name the cost centres you care about.",
+      "nl": "Gebruik je eigen rapport en noem de kostenplaatsen waar het om gaat."
+    },
+    "howItWorks": {
+      "en": "Tailor the tone, vary the period, then save it as a reusable skill.",
+      "nl": "Pas de toon aan, varieer de periode en bewaar het als herbruikbare skill."
+    },
+    "whyCowork": {
+      "en": "It works directly on your files and saves the manual copy-paste.",
+      "nl": "Het werkt direct op je bestanden en bespaart handmatig knip-en-plakwerk."
+    }
+  },
+  {
+    "id": "hr-onboarding-plan",
+    "icon": "people",
+    "rewardId": "poster-welcome",
+    "title": { "en": "30-60-90 onboarding plan", "nl": "Inwerkplan van 30-60-90 dagen" },
+    "summary": {
+      "en": "Draft a structured onboarding plan for a new hire.",
+      "nl": "Stel een gestructureerd inwerkplan op voor een nieuwe collega."
+    },
+    "meta": {
+      "department": "hr",
+      "role": "HR business partner",
+      "workload": "low",
+      "credits": 2,
+      "executionMode": "chat",
+      "capability": "writing",
+      "collaborationScope": "team"
+    },
+    "prompt": {
+      "en": "Create a 30-60-90 day onboarding plan for a {{role}} joining {{team}}.",
+      "nl": "Maak een inwerkplan van 30-60-90 dagen voor een {{role}} die bij {{team}} start."
+    },
+    "seeItRun": {
+      "en": ["Cowork asks about the role.", "It proposes goals per phase.", "It lists meetings to schedule."],
+      "nl": ["Cowork vraagt naar de rol.", "Het stelt doelen per fase voor.", "Het noemt in te plannen gesprekken."]
+    },
+    "fitIntoWork": {
+      "en": "Add your team's tools and rituals to the prompt.",
+      "nl": "Voeg de tools en gewoonten van je team toe aan de prompt."
+    },
+    "howItWorks": {
+      "en": "Tailor by seniority, vary by team, turn it into a skill.",
+      "nl": "Pas aan op senioriteit, varieer per team en maak er een skill van."
+    },
+    "whyCowork": {
+      "en": "Consistent plans in minutes instead of hours.",
+      "nl": "Consistente plannen in minuten in plaats van uren."
+    }
+  },
+  {
+    "id": "sales-meeting-brief",
+    "icon": "briefcase",
+    "rewardId": "desk-lamp",
+    "title": { "en": "Customer meeting brief", "nl": "Briefing voor klantgesprek" },
+    "summary": {
+      "en": "Prepare a one-page brief before a customer call.",
+      "nl": "Bereid een briefing van een pagina voor een klantgesprek voor."
+    },
+    "meta": {
+      "department": "sales",
+      "role": "Account manager",
+      "workload": "low",
+      "credits": 2,
+      "executionMode": "chat",
+      "capability": "research",
+      "collaborationScope": "individual"
+    },
+    "prompt": {
+      "en": "Prepare a one-page brief for my meeting with {{customer}} about {{topic}}.",
+      "nl": "Maak een briefing van een pagina voor mijn gesprek met {{customer}} over {{topic}}."
+    },
+    "seeItRun": {
+      "en": ["Cowork gathers recent notes.", "It highlights open questions.", "It suggests a call agenda."],
+      "nl": ["Cowork verzamelt recente notities.", "Het markeert open vragen.", "Het stelt een agenda voor."]
+    },
+    "fitIntoWork": {
+      "en": "Point the prompt at your own account notes.",
+      "nl": "Richt de prompt op je eigen accountnotities."
+    },
+    "howItWorks": {
+      "en": "Tailor the depth, vary the customer, save it as a skill.",
+      "nl": "Pas de diepgang aan, varieer de klant en bewaar het als skill."
+    },
+    "whyCowork": {
+      "en": "You walk into every call prepared.",
+      "nl": "Je gaat voorbereid elk gesprek in."
+    }
+  },
+  {
+    "id": "general-inbox-triage",
+    "icon": "mail",
+    "rewardId": "coffee-machine",
+    "title": { "en": "Inbox triage", "nl": "Inbox opschonen" },
+    "summary": {
+      "en": "Sort a pile of messages into act, delegate and ignore.",
+      "nl": "Sorteer een stapel berichten in doen, delegeren en negeren."
+    },
+    "meta": {
+      "department": "general",
+      "role": "Any role",
+      "workload": "low",
+      "credits": 1,
+      "executionMode": "chat",
+      "capability": "writing",
+      "collaborationScope": "individual"
+    },
+    "prompt": {
+      "en": "Triage these {{count}} messages into act now, delegate and ignore, with a one-line reason each.",
+      "nl": "Sorteer deze {{count}} berichten in nu doen, delegeren en negeren, met een korte reden per bericht."
+    },
+    "seeItRun": {
+      "en": ["Cowork reads the messages.", "It groups them by urgency.", "It drafts quick replies."],
+      "nl": ["Cowork leest de berichten.", "Het groepeert ze op urgentie.", "Het schrijft snelle antwoorden."]
+    },
+    "fitIntoWork": {
+      "en": "Add the senders and topics that matter most to you.",
+      "nl": "Voeg de afzenders en onderwerpen toe die voor jou het belangrijkst zijn."
+    },
+    "howItWorks": {
+      "en": "Tailor the categories, vary the schedule, turn it into a skill.",
+      "nl": "Pas de categorieën aan, varieer het moment en maak er een skill van."
+    },
+    "whyCowork": {
+      "en": "A fast first pass that you stay in control of.",
+      "nl": "Een snelle eerste ronde waarbij jij de regie houdt."
+    }
+  }
+]
