@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Visual sample (draft 4)</title>
+<style>
+@font-face{font-family:"Pixelify Sans";src:url("PixelifySans.ttf");font-weight:400 700}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:#1d2a27;background:#fff;padding:14px 40px}
+/* normal site chrome */
+.hd{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid #d5dcd9}
+.badge{background:#2f6b5c;color:#fff;font-weight:700;padding:8px 10px;border-radius:6px}
+.sp{flex:1}
+.lang{display:flex;border:1px solid #cfd9d5;border-radius:8px;overflow:hidden}
+.lang b,.lang span{padding:8px 14px}.lang b{background:#2f6b5c;color:#fff}
+.dis{border:1px solid #2f6b5c;color:#2f6b5c;border-radius:8px;padding:8px 14px;margin-left:8px}
+.tabs{display:flex;background:#eef3f1;border:1px solid #cfd9d5;border-radius:30px;padding:6px;margin:12px 0}
+.tabs div{flex:1;text-align:center;padding:9px;border-radius:24px}
+.tabs .on{background:#2f6b5c;color:#fff;box-shadow:0 2px 6px #0003}
+/* everything below is the game: pixel UI */
+.game{font-family:"Pixelify Sans",monospace;color:#2b3550;--n:#26325a;--g:#3b5a9a;--gd:#26325a;--c:#dfe7f2;--cd:#aebcd6;--y:#e8b84a}
+.notch{clip-path:polygon(4px 0,calc(100% - 4px) 0,100% 4px,100% calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,0 calc(100% - 4px),0 4px)}
+.px{border:3px solid var(--n);box-shadow:inset 0 0 0 4px #f4f7fa;background:var(--c)}
+.row{display:grid;grid-template-columns:1fr 390px;gap:12px;height:560px}
+.map{border:3px solid var(--n);background:#10152b;overflow:hidden}
+.map img{display:block;width:100%;height:auto;image-rendering:pixelated;margin-top:-20px}
+.card{display:flex;flex-direction:column;overflow:hidden}
+.title{background:var(--g);color:#fff;padding:12px 14px;border-bottom:4px solid var(--gd);display:flex;gap:10px;align-items:center}
+.title .ic{width:34px;height:34px;background:#f4f7fa;border:2px solid var(--n);display:grid;place-items:center;font-size:18px}
+.title h2{margin:0;font-size:21px;line-height:1.1;letter-spacing:.5px}
+.title p{margin:3px 0 0;font-size:14px;color:#dff0e8}
+.scroll{overflow:auto;padding:10px 14px 12px;font-size:15px;line-height:1.35;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{border:2px solid var(--n);padding:0 7px;font-size:13px;background:#c9d8f0}
+.chip.b{background:#d9e6f5}.chip.p{background:#f3d5d5}
+h3{margin:8px 0 6px;font-size:16px;color:var(--gd);letter-spacing:.5px}
+.prompt{background:#232845;color:#eceeff;border:3px solid #222a4a;padding:10px;font-size:14.5px;line-height:1.5}
+.prompt b{color:var(--y);font-weight:600}.prompt em{font-style:normal;background:var(--y);color:#222a4a;padding:0 4px}
+.btn{display:inline-block;border:3px solid var(--n);background:#f4f7fa;padding:3px 10px;font-size:14px;box-shadow:inset 0 -4px 0 var(--cd);margin:8px 6px 0 0}
+.fin{display:block;text-align:center;background:var(--g);color:#fff;border:3px solid var(--n);padding:7px;font-size:18px;box-shadow:inset 0 -4px 0 var(--gd);margin-top:12px}
+.steps div{border-top:3px dashed var(--cd);padding:6px 0;font-size:15px}
+.bar{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.bb{display:flex;align-items:center;gap:10px;justify-content:center;padding:9px;font-size:18px;border:3px solid var(--n);background:var(--c);box-shadow:inset 0 0 0 3px #f4f7fa,inset 0 -8px 0 3px var(--cd)}
+.bb.on{background:var(--g);color:#fff;box-shadow:inset 0 0 0 3px #6f8fcf,inset 0 -8px 0 3px var(--gd)}
+</style></head><body>
+<div class="hd"><span class="badge">EXA</span><b>Example company</b><span class="sp"></span><div class="lang"><b>EN</b><span>NL</span></div><span class="dis">Disclaimer</span></div>
+<div class="tabs"><div class="on">Tutorial Game</div><div>Use Case Library</div><div>How to start</div><div>Responsible AI</div></div>
+<div class="game">
+<div class="row">
+<div class="map notch"><img src="art-direction-pixel.png" alt="Game map"></div>
+<div class="card px notch">
+<div class="title"><div class="ic">📅</div><div><h2>Protect my focus week</h2><p>Fewer meetings, more focus time</p></div></div>
+<div class="scroll">
+<div class="chips"><span class="chip">Finance</span><span class="chip b">All roles</span><span class="chip p">Medium workload</span><span class="chip">400-600 credits</span></div>
+<h3>1 · THE PROMPT</h3>
+<div class="prompt"><b>Outcome:</b> Free up <em>[period]</em> so I get at least <em>[focus block count]</em> two-hour focus blocks for <em>[my top priority]</em>.<br><b>Constraints:</b> Never decline a meeting I organise. Keep every note friendly and under 40 words.<br><b>Approval:</b> Show me the plan first.</div>
+<span class="btn">Copy prompt</span><span class="btn">Try in Cowork</span><span class="btn">Open in game</span>
+<div class="steps" style="margin-top:12px"><div>2 · See it run</div><div>3 · Fit it into your work</div><div>4 · How it works</div></div>
+<span class="fin">I finished!  Unlock reward</span>
+</div></div>
+</div>
+<div class="bar">
+<div class="bb on notch">📋 Today's tasks 2/55</div><div class="bb notch">🗺️ Map</div><div class="bb notch">❓ Tutorial</div><div class="bb notch">☰ Menu · EN | NL</div>
+</div>
+</div>
+</body></html>
+
+
+
+
+
