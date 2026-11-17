@@ -1,5 +1,8 @@
 import { config } from './config.js';
 import { applyI18n, setLang } from './i18n.js';
+import { loadTheme } from './theme.js';
+
+loadTheme();
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
