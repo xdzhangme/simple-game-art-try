@@ -3,198 +3,3114 @@
  "legend": {
   " ": "void",
   "#": "wall",
+  "F": "wallface",
   ".": "floor",
   "D": "door"
  },
  "spawn": {
   "x": 14,
-  "y": 3
+  "y": 8
  },
  "rooms": [
   {
+   "id": "finance",
+   "name": "Finance",
+   "type": "department",
+   "dept": "finance",
+   "tint": "mint",
+   "x": 1,
+   "y": 12,
+   "w": 11,
+   "h": 6
+  },
+  {
+   "id": "hr",
+   "name": "HR",
+   "type": "department",
+   "dept": "hr",
+   "tint": "lavender",
+   "x": 2,
+   "y": 20,
+   "w": 10,
+   "h": 6
+  },
+  {
+   "id": "it",
+   "name": "IT",
+   "type": "department",
+   "dept": "it",
+   "tint": "ice",
+   "x": 3,
+   "y": 44,
+   "w": 9,
+   "h": 6
+  },
+  {
+   "id": "sales",
+   "name": "Sales",
+   "type": "department",
+   "dept": "sales",
+   "tint": "blush",
+   "x": 18,
+   "y": 12,
+   "w": 11,
+   "h": 6
+  },
+  {
+   "id": "legal",
+   "name": "Legal",
+   "type": "department",
+   "dept": "legal",
+   "tint": "sky",
+   "x": 18,
+   "y": 20,
+   "w": 9,
+   "h": 6
+  },
+  {
+   "id": "ops",
+   "name": "Operations",
+   "type": "department",
+   "dept": "ops",
+   "tint": "sage",
+   "x": 18,
+   "y": 28,
+   "w": 10,
+   "h": 6
+  },
+  {
+   "id": "marketing",
+   "name": "Marketing",
+   "type": "department",
+   "dept": "marketing",
+   "tint": "peach",
+   "x": 18,
+   "y": 36,
+   "w": 11,
+   "h": 6
+  },
+  {
+   "id": "procurement",
+   "name": "Procurement",
+   "type": "department",
+   "dept": "procurement",
+   "tint": "butter",
+   "x": 18,
+   "y": 44,
+   "w": 10,
+   "h": 6
+  },
+  {
+   "id": "service",
+   "name": "Service",
+   "type": "department",
+   "dept": "service",
+   "tint": "sand",
+   "x": 18,
+   "y": 52,
+   "w": 9,
+   "h": 6
+  },
+  {
+   "id": "general",
+   "name": "General meeting room",
+   "type": "general",
+   "dept": null,
+   "tint": "grey",
+   "x": 1,
+   "y": 28,
+   "w": 11,
+   "h": 14
+  },
+  {
    "id": "lobby",
-   "name": "Lobby",
+   "name": "Reception",
+   "type": "tip",
+   "dept": null,
+   "tint": "ice",
+   "x": 1,
+   "y": 2,
+   "w": 16,
+   "h": 8
+  },
+  {
+   "id": "lounge",
+   "name": "Lounge and pantry",
+   "type": "tip",
+   "dept": null,
+   "tint": "peach",
+   "x": 18,
+   "y": 2,
+   "w": 11,
+   "h": 8
+  },
+  {
+   "id": "print",
+   "name": "Print room",
+   "type": "tip",
+   "dept": null,
+   "tint": "grey",
    "x": 2,
-   "y": 1,
-   "w": 24,
-   "h": 4
+   "y": 52,
+   "w": 10,
+   "h": 6
   },
   {
-   "id": "corridor",
-   "name": "Corridor",
-   "x": 12,
-   "y": 6,
-   "w": 4,
-   "h": 24
-  },
+   "id": "workspace",
+   "name": "Open workspace",
+   "type": "tip",
+   "dept": null,
+   "tint": "sky",
+   "x": 1,
+   "y": 60,
+   "w": 28,
+   "h": 7
+  }
+ ],
+ "slots": [
   {
-   "id": "room-1",
-   "name": "Room 1",
+   "id": "finance-1",
+   "room": "finance",
    "x": 2,
-   "y": 6,
-   "w": 9,
-   "h": 4
+   "y": 13,
+   "prop": "desk"
   },
   {
-   "id": "room-2",
-   "name": "Room 2",
-   "x": 17,
-   "y": 6,
-   "w": 9,
-   "h": 4
+   "id": "finance-2",
+   "room": "finance",
+   "x": 5,
+   "y": 13,
+   "prop": "desk"
   },
   {
-   "id": "room-3",
-   "name": "Room 3",
-   "x": 2,
-   "y": 11,
-   "w": 9,
-   "h": 4
+   "id": "finance-3",
+   "room": "finance",
+   "x": 8,
+   "y": 13,
+   "prop": "desk"
   },
   {
-   "id": "room-4",
-   "name": "Room 4",
-   "x": 17,
-   "y": 11,
-   "w": 9,
-   "h": 4
-  },
-  {
-   "id": "room-5",
-   "name": "Room 5",
+   "id": "finance-4",
+   "room": "finance",
    "x": 2,
    "y": 16,
-   "w": 9,
-   "h": 4
+   "prop": "desk"
   },
   {
-   "id": "room-6",
-   "name": "Room 6",
-   "x": 17,
+   "id": "finance-5",
+   "room": "finance",
+   "x": 6,
    "y": 16,
-   "w": 9,
-   "h": 4
+   "prop": "desk"
   },
   {
-   "id": "room-7",
-   "name": "Room 7",
-   "x": 2,
+   "id": "hr-1",
+   "room": "hr",
+   "x": 3,
    "y": 21,
-   "w": 9,
-   "h": 4
+   "prop": "desk"
   },
   {
-   "id": "room-8",
-   "name": "Room 8",
-   "x": 17,
+   "id": "hr-2",
+   "room": "hr",
+   "x": 6,
    "y": 21,
-   "w": 9,
-   "h": 4
+   "prop": "desk"
   },
   {
-   "id": "room-9",
-   "name": "Room 9",
+   "id": "hr-3",
+   "room": "hr",
+   "x": 9,
+   "y": 21,
+   "prop": "desk"
+  },
+  {
+   "id": "hr-4",
+   "room": "hr",
+   "x": 3,
+   "y": 24,
+   "prop": "desk"
+  },
+  {
+   "id": "hr-5",
+   "room": "hr",
+   "x": 7,
+   "y": 24,
+   "prop": "desk"
+  },
+  {
+   "id": "it-1",
+   "room": "it",
+   "x": 4,
+   "y": 45,
+   "prop": "desk"
+  },
+  {
+   "id": "it-2",
+   "room": "it",
+   "x": 7,
+   "y": 45,
+   "prop": "desk"
+  },
+  {
+   "id": "it-3",
+   "room": "it",
+   "x": 10,
+   "y": 45,
+   "prop": "desk"
+  },
+  {
+   "id": "it-4",
+   "room": "it",
+   "x": 4,
+   "y": 48,
+   "prop": "desk"
+  },
+  {
+   "id": "it-5",
+   "room": "it",
+   "x": 8,
+   "y": 48,
+   "prop": "desk"
+  },
+  {
+   "id": "sales-1",
+   "room": "sales",
+   "x": 19,
+   "y": 13,
+   "prop": "desk"
+  },
+  {
+   "id": "sales-2",
+   "room": "sales",
+   "x": 22,
+   "y": 13,
+   "prop": "desk"
+  },
+  {
+   "id": "sales-3",
+   "room": "sales",
+   "x": 25,
+   "y": 13,
+   "prop": "desk"
+  },
+  {
+   "id": "sales-4",
+   "room": "sales",
+   "x": 19,
+   "y": 16,
+   "prop": "desk"
+  },
+  {
+   "id": "sales-5",
+   "room": "sales",
+   "x": 23,
+   "y": 16,
+   "prop": "desk"
+  },
+  {
+   "id": "legal-1",
+   "room": "legal",
+   "x": 19,
+   "y": 21,
+   "prop": "desk"
+  },
+  {
+   "id": "legal-2",
+   "room": "legal",
+   "x": 22,
+   "y": 21,
+   "prop": "desk"
+  },
+  {
+   "id": "legal-3",
+   "room": "legal",
+   "x": 25,
+   "y": 21,
+   "prop": "desk"
+  },
+  {
+   "id": "legal-4",
+   "room": "legal",
+   "x": 19,
+   "y": 24,
+   "prop": "desk"
+  },
+  {
+   "id": "legal-5",
+   "room": "legal",
+   "x": 23,
+   "y": 24,
+   "prop": "desk"
+  },
+  {
+   "id": "ops-1",
+   "room": "ops",
+   "x": 19,
+   "y": 29,
+   "prop": "desk"
+  },
+  {
+   "id": "ops-2",
+   "room": "ops",
+   "x": 22,
+   "y": 29,
+   "prop": "desk"
+  },
+  {
+   "id": "ops-3",
+   "room": "ops",
+   "x": 25,
+   "y": 29,
+   "prop": "desk"
+  },
+  {
+   "id": "ops-4",
+   "room": "ops",
+   "x": 19,
+   "y": 32,
+   "prop": "desk"
+  },
+  {
+   "id": "ops-5",
+   "room": "ops",
+   "x": 23,
+   "y": 32,
+   "prop": "desk"
+  },
+  {
+   "id": "marketing-1",
+   "room": "marketing",
+   "x": 19,
+   "y": 37,
+   "prop": "desk"
+  },
+  {
+   "id": "marketing-2",
+   "room": "marketing",
+   "x": 22,
+   "y": 37,
+   "prop": "desk"
+  },
+  {
+   "id": "marketing-3",
+   "room": "marketing",
+   "x": 25,
+   "y": 37,
+   "prop": "desk"
+  },
+  {
+   "id": "marketing-4",
+   "room": "marketing",
+   "x": 19,
+   "y": 40,
+   "prop": "desk"
+  },
+  {
+   "id": "marketing-5",
+   "room": "marketing",
+   "x": 23,
+   "y": 40,
+   "prop": "desk"
+  },
+  {
+   "id": "procurement-1",
+   "room": "procurement",
+   "x": 19,
+   "y": 45,
+   "prop": "desk"
+  },
+  {
+   "id": "procurement-2",
+   "room": "procurement",
+   "x": 22,
+   "y": 45,
+   "prop": "desk"
+  },
+  {
+   "id": "procurement-3",
+   "room": "procurement",
+   "x": 25,
+   "y": 45,
+   "prop": "desk"
+  },
+  {
+   "id": "procurement-4",
+   "room": "procurement",
+   "x": 19,
+   "y": 48,
+   "prop": "desk"
+  },
+  {
+   "id": "procurement-5",
+   "room": "procurement",
+   "x": 23,
+   "y": 48,
+   "prop": "desk"
+  },
+  {
+   "id": "service-1",
+   "room": "service",
+   "x": 19,
+   "y": 53,
+   "prop": "desk"
+  },
+  {
+   "id": "service-2",
+   "room": "service",
+   "x": 22,
+   "y": 53,
+   "prop": "desk"
+  },
+  {
+   "id": "service-3",
+   "room": "service",
+   "x": 25,
+   "y": 53,
+   "prop": "desk"
+  },
+  {
+   "id": "service-4",
+   "room": "service",
+   "x": 19,
+   "y": 56,
+   "prop": "desk"
+  },
+  {
+   "id": "service-5",
+   "room": "service",
+   "x": 23,
+   "y": 56,
+   "prop": "desk"
+  },
+  {
+   "id": "general-1",
+   "room": "general",
    "x": 2,
-   "y": 26,
-   "w": 9,
-   "h": 4
+   "y": 29,
+   "prop": "desk"
   },
   {
-   "id": "room-10",
-   "name": "Room 10",
-   "x": 17,
-   "y": 26,
-   "w": 9,
-   "h": 4
+   "id": "general-2",
+   "room": "general",
+   "x": 5,
+   "y": 29,
+   "prop": "desk"
+  },
+  {
+   "id": "general-3",
+   "room": "general",
+   "x": 8,
+   "y": 29,
+   "prop": "desk"
+  },
+  {
+   "id": "general-4",
+   "room": "general",
+   "x": 2,
+   "y": 32,
+   "prop": "desk"
+  },
+  {
+   "id": "general-5",
+   "room": "general",
+   "x": 5,
+   "y": 32,
+   "prop": "desk"
+  },
+  {
+   "id": "general-6",
+   "room": "general",
+   "x": 8,
+   "y": 32,
+   "prop": "desk"
+  },
+  {
+   "id": "general-7",
+   "room": "general",
+   "x": 1,
+   "y": 35,
+   "prop": "desk"
+  },
+  {
+   "id": "general-8",
+   "room": "general",
+   "x": 4,
+   "y": 35,
+   "prop": "desk"
+  },
+  {
+   "id": "general-9",
+   "room": "general",
+   "x": 7,
+   "y": 35,
+   "prop": "desk"
+  },
+  {
+   "id": "general-10",
+   "room": "general",
+   "x": 10,
+   "y": 35,
+   "prop": "desk"
   }
  ],
  "objects": [
-  { "id": "obj-finance-variance-summary", "x": 6, "y": 7, "useCaseId": "finance-variance-summary" },
-  { "id": "obj-sales-meeting-brief", "x": 21, "y": 7, "useCaseId": "sales-meeting-brief" },
-  { "id": "obj-hr-onboarding-plan", "x": 6, "y": 12, "useCaseId": "hr-onboarding-plan" },
-  { "id": "obj-general-inbox-triage", "x": 7, "y": 2, "useCaseId": "general-inbox-triage" }
+  {
+   "id": "obj-finance-variance-summary",
+   "x": 2,
+   "y": 13,
+   "useCaseId": "finance-variance-summary"
+  },
+  {
+   "id": "obj-hr-onboarding-plan",
+   "x": 3,
+   "y": 21,
+   "useCaseId": "hr-onboarding-plan"
+  },
+  {
+   "id": "obj-sales-meeting-brief",
+   "x": 19,
+   "y": 13,
+   "useCaseId": "sales-meeting-brief"
+  },
+  {
+   "id": "obj-general-inbox-triage",
+   "x": 2,
+   "y": 29,
+   "useCaseId": "general-inbox-triage"
+  }
  ],
- "tiles": [
-  " ########################## ",
-  " #........................# ",
-  " #........................# ",
-  " #........................# ",
-  " #........................# ",
-  " ############DD############ ",
-  " #.........#....#.........# ",
-  " #.........D....D.........# ",
-  " #.........#....#.........# ",
-  " #.........#....#.........# ",
-  " ###########....########### ",
-  " #.........#....#.........# ",
-  " #.........D....D.........# ",
-  " #.........#....#.........# ",
-  " #.........#....#.........# ",
-  " ###########....########### ",
-  " #.........#....#.........# ",
-  " #.........D....D.........# ",
-  " #.........#....#.........# ",
-  " #.........#....#.........# ",
-  " ###########....########### ",
-  " #.........#....#.........# ",
-  " #.........D....D.........# ",
-  " #.........#....#.........# ",
-  " #.........#....#.........# ",
-  " ###########....########### ",
-  " #.........#....#.........# ",
-  " #.........D....D.........# ",
-  " #.........#....#.........# ",
-  " #.........#....#.........# ",
-  " ########################## "
+ "props": [
+  {
+   "sprite": "window",
+   "x": 1,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 9,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 5,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 1,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 3,
+   "y": 12,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 6,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 7,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 11,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 4,
+   "y": 14,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 2,
+   "y": 13,
+   "w": 2,
+   "h": 1,
+   "slot": "finance-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 2,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 5,
+   "y": 13,
+   "w": 2,
+   "h": 1,
+   "slot": "finance-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 5,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 8,
+   "y": 13,
+   "w": 2,
+   "h": 1,
+   "slot": "finance-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 8,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 2,
+   "y": 16,
+   "w": 2,
+   "h": 1,
+   "slot": "finance-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 2,
+   "y": 17,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 6,
+   "y": 16,
+   "w": 2,
+   "h": 1,
+   "slot": "finance-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 6,
+   "y": 17,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 11,
+   "y": 17,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 10,
+   "y": 17,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 2,
+   "y": 19,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 9,
+   "y": 19,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 6,
+   "y": 19,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 2,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 4,
+   "y": 20,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 7,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 8,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 11,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 5,
+   "y": 22,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 3,
+   "y": 21,
+   "w": 2,
+   "h": 1,
+   "slot": "hr-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 3,
+   "y": 22,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 6,
+   "y": 21,
+   "w": 2,
+   "h": 1,
+   "slot": "hr-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 6,
+   "y": 22,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 9,
+   "y": 21,
+   "w": 2,
+   "h": 1,
+   "slot": "hr-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 9,
+   "y": 22,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 3,
+   "y": 24,
+   "w": 2,
+   "h": 1,
+   "slot": "hr-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 3,
+   "y": 25,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 7,
+   "y": 24,
+   "w": 2,
+   "h": 1,
+   "slot": "hr-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 7,
+   "y": 25,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 11,
+   "y": 25,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 10,
+   "y": 25,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 3,
+   "y": 43,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 9,
+   "y": 43,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 7,
+   "y": 43,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 3,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 5,
+   "y": 44,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 8,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 9,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 11,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 6,
+   "y": 46,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 4,
+   "y": 45,
+   "w": 2,
+   "h": 1,
+   "slot": "it-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 4,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 7,
+   "y": 45,
+   "w": 2,
+   "h": 1,
+   "slot": "it-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 7,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 10,
+   "y": 45,
+   "w": 2,
+   "h": 1,
+   "slot": "it-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 10,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 4,
+   "y": 48,
+   "w": 2,
+   "h": 1,
+   "slot": "it-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 4,
+   "y": 49,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 8,
+   "y": 48,
+   "w": 2,
+   "h": 1,
+   "slot": "it-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 8,
+   "y": 49,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 11,
+   "y": 49,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 10,
+   "y": 49,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 18,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 26,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 22,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 20,
+   "y": 12,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 23,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 24,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 28,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 21,
+   "y": 14,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 13,
+   "w": 2,
+   "h": 1,
+   "slot": "sales-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 22,
+   "y": 13,
+   "w": 2,
+   "h": 1,
+   "slot": "sales-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 22,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 25,
+   "y": 13,
+   "w": 2,
+   "h": 1,
+   "slot": "sales-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 25,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 16,
+   "w": 2,
+   "h": 1,
+   "slot": "sales-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 17,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 23,
+   "y": 16,
+   "w": 2,
+   "h": 1,
+   "slot": "sales-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 23,
+   "y": 17,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 28,
+   "y": 17,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 27,
+   "y": 17,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 18,
+   "y": 19,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 24,
+   "y": 19,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 22,
+   "y": 19,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 20,
+   "y": 20,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 23,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 24,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 26,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 21,
+   "y": 22,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 21,
+   "w": 2,
+   "h": 1,
+   "slot": "legal-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 22,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 22,
+   "y": 21,
+   "w": 2,
+   "h": 1,
+   "slot": "legal-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 22,
+   "y": 22,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 25,
+   "y": 21,
+   "w": 2,
+   "h": 1,
+   "slot": "legal-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 25,
+   "y": 22,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 24,
+   "w": 2,
+   "h": 1,
+   "slot": "legal-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 25,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 23,
+   "y": 24,
+   "w": 2,
+   "h": 1,
+   "slot": "legal-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 23,
+   "y": 25,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 26,
+   "y": 25,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 25,
+   "y": 25,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 18,
+   "y": 27,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 25,
+   "y": 27,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 22,
+   "y": 27,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 28,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 20,
+   "y": 28,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 23,
+   "y": 28,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 24,
+   "y": 28,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 27,
+   "y": 28,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 21,
+   "y": 30,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 29,
+   "w": 2,
+   "h": 1,
+   "slot": "ops-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 30,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 22,
+   "y": 29,
+   "w": 2,
+   "h": 1,
+   "slot": "ops-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 22,
+   "y": 30,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 25,
+   "y": 29,
+   "w": 2,
+   "h": 1,
+   "slot": "ops-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 25,
+   "y": 30,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 32,
+   "w": 2,
+   "h": 1,
+   "slot": "ops-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 33,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 23,
+   "y": 32,
+   "w": 2,
+   "h": 1,
+   "slot": "ops-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 23,
+   "y": 33,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 27,
+   "y": 33,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 26,
+   "y": 33,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 18,
+   "y": 35,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 26,
+   "y": 35,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 22,
+   "y": 35,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 36,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 20,
+   "y": 36,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 23,
+   "y": 36,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 24,
+   "y": 36,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 28,
+   "y": 36,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 21,
+   "y": 38,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 37,
+   "w": 2,
+   "h": 1,
+   "slot": "marketing-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 38,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 22,
+   "y": 37,
+   "w": 2,
+   "h": 1,
+   "slot": "marketing-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 22,
+   "y": 38,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 25,
+   "y": 37,
+   "w": 2,
+   "h": 1,
+   "slot": "marketing-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 25,
+   "y": 38,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 40,
+   "w": 2,
+   "h": 1,
+   "slot": "marketing-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 41,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 23,
+   "y": 40,
+   "w": 2,
+   "h": 1,
+   "slot": "marketing-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 23,
+   "y": 41,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 28,
+   "y": 41,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 27,
+   "y": 41,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 18,
+   "y": 43,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 25,
+   "y": 43,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 22,
+   "y": 43,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 20,
+   "y": 44,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 23,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 24,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 27,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 21,
+   "y": 46,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 45,
+   "w": 2,
+   "h": 1,
+   "slot": "procurement-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 22,
+   "y": 45,
+   "w": 2,
+   "h": 1,
+   "slot": "procurement-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 22,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 25,
+   "y": 45,
+   "w": 2,
+   "h": 1,
+   "slot": "procurement-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 25,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 48,
+   "w": 2,
+   "h": 1,
+   "slot": "procurement-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 49,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 23,
+   "y": 48,
+   "w": 2,
+   "h": 1,
+   "slot": "procurement-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 23,
+   "y": 49,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 27,
+   "y": 49,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 26,
+   "y": 49,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 18,
+   "y": 51,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 24,
+   "y": 51,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 22,
+   "y": 51,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 52,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 20,
+   "y": 52,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 23,
+   "y": 52,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 24,
+   "y": 52,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 26,
+   "y": 52,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x2",
+   "x": 21,
+   "y": 54,
+   "w": 4,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 53,
+   "w": 2,
+   "h": 1,
+   "slot": "service-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 54,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 22,
+   "y": 53,
+   "w": 2,
+   "h": 1,
+   "slot": "service-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 22,
+   "y": 54,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 25,
+   "y": 53,
+   "w": 2,
+   "h": 1,
+   "slot": "service-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 25,
+   "y": 54,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 56,
+   "w": 2,
+   "h": 1,
+   "slot": "service-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 57,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 23,
+   "y": 56,
+   "w": 2,
+   "h": 1,
+   "slot": "service-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 23,
+   "y": 57,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "bin",
+   "x": 26,
+   "y": 57,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 25,
+   "y": 57,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 1,
+   "y": 27,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "whiteboard",
+   "x": 4,
+   "y": 27,
+   "w": 2,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 8,
+   "y": 27,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "poster",
+   "x": 10,
+   "y": 27,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 1,
+   "y": 28,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 3,
+   "y": 28,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 6,
+   "y": 28,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 11,
+   "y": 28,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "desk",
+   "x": 2,
+   "y": 29,
+   "w": 2,
+   "h": 1,
+   "slot": "general-1"
+  },
+  {
+   "sprite": "chair",
+   "x": 2,
+   "y": 30,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 5,
+   "y": 29,
+   "w": 2,
+   "h": 1,
+   "slot": "general-2"
+  },
+  {
+   "sprite": "chair",
+   "x": 5,
+   "y": 30,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 8,
+   "y": 29,
+   "w": 2,
+   "h": 1,
+   "slot": "general-3"
+  },
+  {
+   "sprite": "chair",
+   "x": 8,
+   "y": 30,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 2,
+   "y": 32,
+   "w": 2,
+   "h": 1,
+   "slot": "general-4"
+  },
+  {
+   "sprite": "chair",
+   "x": 2,
+   "y": 33,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 5,
+   "y": 32,
+   "w": 2,
+   "h": 1,
+   "slot": "general-5"
+  },
+  {
+   "sprite": "chair",
+   "x": 5,
+   "y": 33,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 8,
+   "y": 32,
+   "w": 2,
+   "h": 1,
+   "slot": "general-6"
+  },
+  {
+   "sprite": "chair",
+   "x": 8,
+   "y": 33,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 1,
+   "y": 35,
+   "w": 2,
+   "h": 1,
+   "slot": "general-7"
+  },
+  {
+   "sprite": "chair",
+   "x": 1,
+   "y": 36,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 4,
+   "y": 35,
+   "w": 2,
+   "h": 1,
+   "slot": "general-8"
+  },
+  {
+   "sprite": "chair",
+   "x": 4,
+   "y": 36,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 7,
+   "y": 35,
+   "w": 2,
+   "h": 1,
+   "slot": "general-9"
+  },
+  {
+   "sprite": "chair",
+   "x": 7,
+   "y": 36,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 10,
+   "y": 35,
+   "w": 2,
+   "h": 1,
+   "slot": "general-10"
+  },
+  {
+   "sprite": "chair",
+   "x": 10,
+   "y": 36,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "rug-4x3",
+   "x": 4,
+   "y": 37,
+   "w": 4,
+   "h": 3,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "meeting-table",
+   "x": 4,
+   "y": 38,
+   "w": 4,
+   "h": 2
+  },
+  {
+   "sprite": "plant",
+   "x": 11,
+   "y": 39,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "bin",
+   "x": 1,
+   "y": 39,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 3,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 7,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 11,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "vending-red",
+   "x": 1,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "vending-blue",
+   "x": 2,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cooler",
+   "x": 3,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "bin",
+   "x": 4,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "reception",
+   "x": 6,
+   "y": 3,
+   "w": 3,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 9,
+   "y": 3,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "stairs",
+   "x": 15,
+   "y": 2,
+   "w": 2,
+   "h": 3
+  },
+  {
+   "sprite": "rug-4x3",
+   "x": 9,
+   "y": 5,
+   "w": 4,
+   "h": 3,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "sofa",
+   "x": 9,
+   "y": 5,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "coffee-table",
+   "x": 10,
+   "y": 6,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "armchair",
+   "x": 9,
+   "y": 7,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "armchair",
+   "x": 12,
+   "y": 7,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "lamp",
+   "x": 13,
+   "y": 5,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 1,
+   "y": 8,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 5,
+   "y": 7,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 18,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 22,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 26,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "counter",
+   "x": 19,
+   "y": 2,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "coffee-machine",
+   "x": 21,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "fridge",
+   "x": 23,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cooler",
+   "x": 24,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 28,
+   "y": 2,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-4x3",
+   "x": 20,
+   "y": 5,
+   "w": 4,
+   "h": 3,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "sofa",
+   "x": 20,
+   "y": 5,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "coffee-table",
+   "x": 21,
+   "y": 6,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "armchair",
+   "x": 24,
+   "y": 6,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "round-table",
+   "x": 26,
+   "y": 5,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "lamp",
+   "x": 28,
+   "y": 5,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 8,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "bin",
+   "x": 28,
+   "y": 8,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "window",
+   "x": 2,
+   "y": 51,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "poster",
+   "x": 6,
+   "y": 51,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 9,
+   "y": 51,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "printer",
+   "x": 3,
+   "y": 52,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "printer",
+   "x": 6,
+   "y": 52,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "box-shelf",
+   "x": 9,
+   "y": 52,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "boxes",
+   "x": 2,
+   "y": 56,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "boxes",
+   "x": 3,
+   "y": 56,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cabinet",
+   "x": 5,
+   "y": 56,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "bin",
+   "x": 11,
+   "y": 57,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 2,
+   "y": 52,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "rug-3x2",
+   "x": 6,
+   "y": 54,
+   "w": 3,
+   "h": 2,
+   "solid": false,
+   "layer": "floor"
+  },
+  {
+   "sprite": "window",
+   "x": 2,
+   "y": 59,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "window",
+   "x": 27,
+   "y": 59,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "frame",
+   "x": 6,
+   "y": 59,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "clock",
+   "x": 10,
+   "y": 59,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "whiteboard",
+   "x": 18,
+   "y": 59,
+   "w": 2,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "poster",
+   "x": 23,
+   "y": 59,
+   "w": 1,
+   "h": 1,
+   "solid": false
+  },
+  {
+   "sprite": "plant",
+   "x": 1,
+   "y": 60,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 28,
+   "y": 60,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 3,
+   "y": 60,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "shelf",
+   "x": 24,
+   "y": 60,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "desk",
+   "x": 2,
+   "y": 62,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "chair",
+   "x": 2,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 5,
+   "y": 62,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "chair",
+   "x": 5,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 8,
+   "y": 62,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "chair",
+   "x": 8,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 19,
+   "y": 62,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "chair",
+   "x": 19,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 22,
+   "y": 62,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "chair",
+   "x": 22,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "desk",
+   "x": 25,
+   "y": 62,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "sprite": "chair",
+   "x": 25,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "solid": false,
+   "dx": 8
+  },
+  {
+   "sprite": "plant",
+   "x": 11,
+   "y": 65,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 18,
+   "y": 65,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "bin",
+   "x": 28,
+   "y": 65,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 13,
+   "y": 11,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "lamp",
+   "x": 16,
+   "y": 19,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 13,
+   "y": 27,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "lamp",
+   "x": 16,
+   "y": 35,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 13,
+   "y": 43,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "lamp",
+   "x": 16,
+   "y": 51,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "bin",
+   "x": 16,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "cooler",
+   "x": 13,
+   "y": 38,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "bin",
+   "x": 13,
+   "y": 44,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "sprite": "plant",
+   "x": 16,
+   "y": 52,
+   "w": 1,
+   "h": 1
+  }
  ],
  "doors": [
   {
-   "x": 13,
-   "y": 5
+   "x": 12,
+   "y": 14
   },
   {
-   "x": 14,
-   "y": 5
+   "x": 12,
+   "y": 15
   },
   {
-   "x": 11,
-   "y": 7
-  },
-  {
-   "x": 16,
-   "y": 7
-  },
-  {
-   "x": 11,
-   "y": 12
-  },
-  {
-   "x": 16,
-   "y": 12
-  },
-  {
-   "x": 11,
-   "y": 17
-  },
-  {
-   "x": 16,
-   "y": 17
-  },
-  {
-   "x": 11,
+   "x": 12,
    "y": 22
   },
   {
-   "x": 16,
+   "x": 12,
+   "y": 23
+  },
+  {
+   "x": 12,
+   "y": 46
+  },
+  {
+   "x": 12,
+   "y": 47
+  },
+  {
+   "x": 17,
+   "y": 14
+  },
+  {
+   "x": 17,
+   "y": 15
+  },
+  {
+   "x": 17,
    "y": 22
   },
   {
-   "x": 11,
-   "y": 27
+   "x": 17,
+   "y": 23
   },
   {
-   "x": 16,
-   "y": 27
+   "x": 17,
+   "y": 30
+  },
+  {
+   "x": 17,
+   "y": 31
+  },
+  {
+   "x": 17,
+   "y": 38
+  },
+  {
+   "x": 17,
+   "y": 39
+  },
+  {
+   "x": 17,
+   "y": 46
+  },
+  {
+   "x": 17,
+   "y": 47
+  },
+  {
+   "x": 17,
+   "y": 54
+  },
+  {
+   "x": 17,
+   "y": 55
+  },
+  {
+   "x": 12,
+   "y": 30
+  },
+  {
+   "x": 12,
+   "y": 31
+  },
+  {
+   "x": 17,
+   "y": 4
+  },
+  {
+   "x": 17,
+   "y": 5
+  },
+  {
+   "x": 12,
+   "y": 54
+  },
+  {
+   "x": 12,
+   "y": 55
   }
+ ],
+ "tiles": [
+  "##############################",
+  "#FFFFFFFFFFFFFFFF#FFFFFFFFFFF#",
+  "#................#...........#",
+  "#................#...........#",
+  "#................D...........#",
+  "#................D...........#",
+  "#................#...........#",
+  "#................#...........#",
+  "#................#...........#",
+  "#................#...........#",
+  "#############....#############",
+  "#FFFFFFFFFFF#....#FFFFFFFFFFF#",
+  "#...........#....#...........#",
+  "#...........#....#...........#",
+  "#...........D....D...........#",
+  "#...........D....D...........#",
+  "#...........#....#...........#",
+  "#...........#....#...........#",
+  "#############....#############",
+  " #FFFFFFFFFF#....#FFFFFFFFF#  ",
+  " #..........#....#.........#  ",
+  " #..........#....#.........#  ",
+  " #..........D....D.........#  ",
+  " #..........D....D.........#  ",
+  " #..........#....#.........#  ",
+  " #..........#....#.........#  ",
+  "#############....############ ",
+  "#FFFFFFFFFFF#....#FFFFFFFFFF# ",
+  "#...........#....#..........# ",
+  "#...........#....#..........# ",
+  "#...........D....D..........# ",
+  "#...........D....D..........# ",
+  "#...........#....#..........# ",
+  "#...........#....#..........# ",
+  "#...........#....#############",
+  "#...........#....#FFFFFFFFFFF#",
+  "#...........#....#...........#",
+  "#...........#....#...........#",
+  "#...........#....D...........#",
+  "#...........#....D...........#",
+  "#...........#....#...........#",
+  "#...........#....#...........#",
+  "#############....#############",
+  "  #FFFFFFFFF#....#FFFFFFFFFF# ",
+  "  #.........#....#..........# ",
+  "  #.........#....#..........# ",
+  "  #.........D....D..........# ",
+  "  #.........D....D..........# ",
+  "  #.........#....#..........# ",
+  "  #.........#....#..........# ",
+  " ############....############ ",
+  " #FFFFFFFFFF#....#FFFFFFFFF#  ",
+  " #..........#....#.........#  ",
+  " #..........#....#.........#  ",
+  " #..........D....D.........#  ",
+  " #..........D....D.........#  ",
+  " #..........#....#.........#  ",
+  " #..........#....#.........#  ",
+  "#############....#############",
+  "#FFFFFFFFFFFFFFFFFFFFFFFFFFFF#",
+  "#............................#",
+  "#............................#",
+  "#............................#",
+  "#............................#",
+  "#............................#",
+  "#............................#",
+  "#............................#",
+  "##############################"
  ]
 }

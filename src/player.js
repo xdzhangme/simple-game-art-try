@@ -1,12 +1,13 @@
 // Player entity: keyboard movement, tile/prop collision and a 4-direction walk cycle.
 // Position (x, y) is the center of the player's feet in map pixels.
+import { drawCharacter } from './art/atlas.js';
 import { tileAt } from './tilemap.js';
 
 const SPEED = 64; // map pixels per second
 const FRAME_TIME = 0.15; // seconds per walk frame
 const FEET = { halfW: 5, h: 5 }; // collision box: 10x5 px at the feet
 const SPRITE = { w: 16, h: 24 };
-const WALK_CYCLE = [0, 1, 0, 2]; // frame 0 is idle, 1 and 2 are the stepping frames
+const WALK_CYCLE = [1, 3, 2, 3]; // frame 0 is idle, 1 and 2 are strides, 3 is the passing pose
 
 const KEYS = {
   ArrowUp: 'up', w: 'up', W: 'up',
@@ -103,33 +104,7 @@ export function createPlayer(map, canPlay = () => true) {
   return player;
 }
 
-// Placeholder pixel sprite drawn per direction and frame (final art replaces this).
-export function drawPlayer(ctx, player, camX, camY, colors) {
-  const px = Math.round(player.x - camX - SPRITE.w / 2);
-  const py = Math.round(player.y - camY - SPRITE.h);
-  const f = player.frame();
-  const bob = f === 0 ? 0 : -1;
-  const rect = (c, x, y, w, h) => {
-    ctx.fillStyle = c;
-    ctx.fillRect(px + x, py + y + bob, w, h);
-  };
-  const { outline, skin, body, legs } = colors;
-  const dir = player.facing;
-  rect(outline, 3, 1, 10, 22); // outline silhouette
-  rect(skin, 4, 2, 8, 7); // head
-  rect(body, 4, 10, 8, 7); // torso
-  if (dir === 'down') {
-    rect(outline, 5, 5, 1, 2);
-    rect(outline, 10, 5, 1, 2);
-  } else if (dir === 'left') {
-    rect(outline, 5, 5, 1, 2);
-  } else if (dir === 'right') {
-    rect(outline, 10, 5, 1, 2);
-  } else {
-    rect(outline, 4, 2, 8, 3); // back of the head: hair
-  }
-  // legs: frame 1 steps with the left leg, frame 2 with the right
-  rect(legs, 4, 17 + (f === 1 ? -1 : 0), 3, 5);
-  rect(legs, 9, 17 + (f === 2 ? -1 : 0), 3, 5);
-  if (dir === 'left' || dir === 'right') rect(body, dir === 'left' ? 3 : 12, 11, 1, 5); // arm
+// Draws the 16x24 character sprite (4 directions x 4 frames) from the art atlas.
+export function drawPlayer(ctx, player, camX, camY) {
+  drawCharacter(ctx, player.facing, player.frame(), player.x - camX - SPRITE.w / 2, player.y - camY - SPRITE.h);
 }
