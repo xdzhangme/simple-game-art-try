@@ -331,3 +331,11 @@ dialog .dis {
 .uc-steps {
   padding-left: 22px;
 }
+[data-content] {
+  max-width: 640px;
+}
+
+[data-content] h2 {
+  margin-top: 0;
+}
+

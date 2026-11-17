@@ -1,11 +1,11 @@
+import { renderPages } from './pages.js';
+
 const STORAGE_KEY = 'lang';
 export const LANGS = ['en', 'nl'];
 
 const strings = {
   en: {
     'disclaimer.button': 'Disclaimer',
-    'disclaimer.title': 'Disclaimer',
-    'disclaimer.body': 'Disclaimer text will be added here.',
     'dialog.close': 'Close',
     'tabs.label': 'Sections',
     'tab.game': 'Tutorial Game',
@@ -40,13 +40,9 @@ const strings = {
     'chip.collaborationScope.individual': 'Individual',
     'chip.collaborationScope.team': 'Team',
     'chip.collaborationScope.organization': 'Organization',
-    'start.placeholder': 'Getting-started guidance will appear here.',
-    'rai.placeholder': 'Responsible AI guidance will appear here.',
   },
   nl: {
     'disclaimer.button': 'Disclaimer',
-    'disclaimer.title': 'Disclaimer',
-    'disclaimer.body': 'De disclaimertekst wordt hier toegevoegd.',
     'dialog.close': 'Sluiten',
     'tabs.label': 'Secties',
     'tab.game': 'Tutorialspel',
@@ -81,8 +77,6 @@ const strings = {
     'chip.collaborationScope.individual': 'Individueel',
     'chip.collaborationScope.team': 'Team',
     'chip.collaborationScope.organization': 'Organisatie',
-    'start.placeholder': 'Aan de slag-uitleg verschijnt hier.',
-    'rai.placeholder': 'Uitleg over verantwoorde AI verschijnt hier.',
   },
 };
 
@@ -129,6 +123,7 @@ export function t(key) {
 // Swaps every [data-i18n] text and [data-i18n-aria] aria-label in the DOM.
 export function applyI18n(root = document) {
   document.documentElement.lang = current;
+  renderPages(current, root);
   root.querySelectorAll('[data-i18n]').forEach((el) => {
     el.textContent = t(el.dataset.i18n);
   });
