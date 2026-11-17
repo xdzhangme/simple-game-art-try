@@ -2,8 +2,8 @@ import { config } from './config.js';
 import { applyI18n, setLang } from './i18n.js';
 import { initLibrary } from './library.js';
 import { loadTheme } from './theme.js';
-
-loadTheme();
+import officeMap from './data/office-map.json';
+import { createMapView } from './tilemap.js';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -41,16 +41,5 @@ document.getElementById('disclaimer-close').addEventListener('click', () => dial
 initLibrary(document.getElementById('library-list'));
 applyI18n();
 
-const canvas = document.getElementById('game');
-const ctx = canvas.getContext('2d');
-
-function frame() {
-  ctx.fillStyle = '#333c57';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#f4f4f4';
-  ctx.font = '16px monospace';
-  ctx.fillText('Pixel Office', 100, 124);
-  requestAnimationFrame(frame);
-}
-
-requestAnimationFrame(frame);
+const mapView = createMapView(document.getElementById('game'), document.getElementById('viewport'), officeMap);
+loadTheme().then(() => mapView.redraw());
