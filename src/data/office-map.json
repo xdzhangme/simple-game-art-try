@@ -108,6 +108,12 @@
    "h": 4
   }
  ],
+ "objects": [
+  { "id": "obj-finance-variance-summary", "x": 6, "y": 7, "useCaseId": "finance-variance-summary" },
+  { "id": "obj-sales-meeting-brief", "x": 21, "y": 7, "useCaseId": "sales-meeting-brief" },
+  { "id": "obj-hr-onboarding-plan", "x": 6, "y": 12, "useCaseId": "hr-onboarding-plan" },
+  { "id": "obj-general-inbox-triage", "x": 7, "y": 2, "useCaseId": "general-inbox-triage" }
+ ],
  "tiles": [
   " ########################## ",
   " #........................# ",
