@@ -355,3 +355,24 @@ dialog .dis {
   margin-top: 0;
 }
 
+
+.game-card:focus {
+  outline: none;
+}
+
+.gp-idle {
+  border: 3px solid var(--ink);
+  background: var(--panel);
+}
+
+.gp-progress,
+.gp-next {
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.gp-rewards {
+  margin: 0 0 10px;
+  padding-left: 22px;
+}
+

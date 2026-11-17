@@ -8,6 +8,7 @@ import { createMapView } from './tilemap.js';
 import useCases from './data/use-cases.json';
 import { drawInteractables, loadObjects, nearestInteractable } from './interactables.js';
 import { initRules } from './rules.js';
+import { initCardPanel } from './panel.js';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -50,6 +51,7 @@ const player = createPlayer(officeMap, () => !gamePanel.hidden);
 const objects = loadObjects(officeMap, useCases);
 let active = null;
 initRules(window, () => active, () => !gamePanel.hidden);
+initCardPanel(document.getElementById('card'), useCases);
 
 function playerColors() {
   const css = getComputedStyle(document.documentElement);
