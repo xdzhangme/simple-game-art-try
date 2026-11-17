@@ -7,7 +7,46 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <canvas id="game" width="320" height="240"></canvas>
+    <header class="hd">
+      <span class="badge" id="badge"></span>
+      <b id="company"></b>
+      <span class="sp"></span>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="nl">NL</button>
+      </div>
+      <button type="button" class="dis" id="disclaimer-btn" data-i18n="disclaimer.button"></button>
+    </header>
+
+    <nav class="tabs" role="tablist" data-i18n-aria="tabs.label">
+      <button type="button" role="tab" id="tab-game" aria-controls="panel-game" data-tab="game" data-i18n="tab.game"></button>
+      <button type="button" role="tab" id="tab-library" aria-controls="panel-library" data-tab="library" data-i18n="tab.library"></button>
+      <button type="button" role="tab" id="tab-start" aria-controls="panel-start" data-tab="start" data-i18n="tab.start"></button>
+      <button type="button" role="tab" id="tab-rai" aria-controls="panel-rai" data-tab="rai" data-i18n="tab.rai"></button>
+    </nav>
+
+    <main>
+      <section role="tabpanel" id="panel-game" aria-labelledby="tab-game">
+        <canvas id="game" width="320" height="240"></canvas>
+        <p class="placeholder" data-i18n="game.placeholder"></p>
+      </section>
+      <section role="tabpanel" id="panel-library" aria-labelledby="tab-library" hidden>
+        <p class="placeholder" data-i18n="library.placeholder"></p>
+      </section>
+      <section role="tabpanel" id="panel-start" aria-labelledby="tab-start" hidden>
+        <p class="placeholder" data-i18n="start.placeholder"></p>
+      </section>
+      <section role="tabpanel" id="panel-rai" aria-labelledby="tab-rai" hidden>
+        <p class="placeholder" data-i18n="rai.placeholder"></p>
+      </section>
+    </main>
+
+    <dialog id="disclaimer-dialog">
+      <h2 data-i18n="disclaimer.title"></h2>
+      <p data-i18n="disclaimer.body"></p>
+      <button type="button" class="dis" id="disclaimer-close" data-i18n="dialog.close"></button>
+    </dialog>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
