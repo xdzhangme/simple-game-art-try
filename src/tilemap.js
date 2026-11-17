@@ -69,16 +69,20 @@ export function drawMap(ctx, map, camera, view) {
 }
 
 // Sizes the canvas bitmap to the container at an integer scale and redraws on resize.
-// Returns { setTarget(x, y), redraw() } where the camera follows the target in map pixels.
-export function createMapView(canvas, container, map) {
+// Returns { setTarget(x, y), step(dt), redraw() }; the camera eases toward the target (map pixels)
+// and drawOverlay(ctx, camX, camY) draws entities on top of the tiles.
+export function createMapView(canvas, container, map, drawOverlay) {
   const ctx = canvas.getContext('2d');
   const size = mapSize(map);
   const target = { x: map.spawn.x * map.tileSize, y: map.spawn.y * map.tileSize };
   const view = { width: 0, height: 0 };
+  let cam = null;
 
   function redraw() {
     if (!view.width || !view.height) return;
-    drawMap(ctx, map, clampCamera(target.x, target.y, view, size), view);
+    cam ??= clampCamera(target.x, target.y, view, size);
+    drawMap(ctx, map, cam, view);
+    drawOverlay?.(ctx, Math.round(cam.x), Math.round(cam.y));
   }
 
   function resize() {
@@ -86,6 +90,7 @@ export function createMapView(canvas, container, map) {
     view.height = Math.floor(container.clientHeight / SCALE);
     canvas.width = view.width;
     canvas.height = view.height;
+    cam = null;
     canvas.style.width = `${view.width * SCALE}px`;
     canvas.style.height = `${view.height * SCALE}px`;
     redraw();
@@ -98,6 +103,13 @@ export function createMapView(canvas, container, map) {
     setTarget(x, y) {
       target.x = x;
       target.y = y;
+    },
+    step(dt) {
+      if (!view.width || !view.height) return;
+      const goal = clampCamera(target.x, target.y, view, size);
+      cam ??= goal;
+      const k = 1 - Math.exp(-dt * 10);
+      cam = { x: cam.x + (goal.x - cam.x) * k, y: cam.y + (goal.y - cam.y) * k };
       redraw();
     },
     redraw,

@@ -3,6 +3,7 @@ import { applyI18n, setLang } from './i18n.js';
 import { initLibrary } from './library.js';
 import { loadTheme } from './theme.js';
 import officeMap from './data/office-map.json';
+import { createPlayer, drawPlayer } from './player.js';
 import { createMapView } from './tilemap.js';
 
 document.title = config.companyName;
@@ -41,5 +42,32 @@ document.getElementById('disclaimer-close').addEventListener('click', () => dial
 initLibrary(document.getElementById('library-list'));
 applyI18n();
 
-const mapView = createMapView(document.getElementById('game'), document.getElementById('viewport'), officeMap);
-loadTheme().then(() => mapView.redraw());
+const gamePanel = document.getElementById('panel-game');
+const player = createPlayer(officeMap, () => !gamePanel.hidden);
+
+function playerColors() {
+  const css = getComputedStyle(document.documentElement);
+  const v = (name) => css.getPropertyValue(name).trim();
+  return { outline: v('--ink'), skin: v('--wall'), body: v('--accent'), legs: v('--accent-dark') };
+}
+
+const mapView = createMapView(
+  document.getElementById('game'),
+  document.getElementById('viewport'),
+  officeMap,
+  (ctx, camX, camY) => drawPlayer(ctx, player, camX, camY, playerColors()),
+);
+loadTheme();
+
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min((now - last) / 1000, 0.05);
+  last = now;
+  if (!gamePanel.hidden) {
+    player.update(dt);
+    mapView.setTarget(player.x, player.y - 8);
+    mapView.step(dt);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
