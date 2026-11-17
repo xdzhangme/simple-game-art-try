@@ -224,6 +224,113 @@ dialog .dis {
   margin-left: 0;
 }
 
+/* Use case card (shared by the Library and the game) */
+.uc-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.uc-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.uc-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+}
+
+.uc-icon {
+  font-size: 22px;
+}
+
+.uc-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.uc-body {
+  padding: 12px 14px 14px;
+}
+
+.uc-summary {
+  margin: 0 0 8px;
+}
+
+.uc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.uc-chip {
+  border: 2px solid var(--ink);
+  padding: 1px 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  background: var(--panel-dark);
+}
+
+.uc-chip--alt {
+  background: var(--wall);
+}
+
+.uc-chip--mark {
+  background: var(--marker);
+}
+
+.uc-label {
+  margin: 0 0 4px;
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.uc-prompt {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  border: 2px solid var(--outline);
+  background: var(--wall);
+}
+
+.uc-fill {
+  background: var(--marker);
+  color: var(--ink);
+  padding: 0 4px;
+  font-weight: 700;
+}
+
+.uc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.uc-actions a.px-btn {
+  text-decoration: none;
+}
+
+.uc-section summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.uc-section p,
+.uc-steps {
+  margin: 4px 0 8px;
+}
+
+.uc-steps {
+  padding-left: 22px;
+}
 [data-content] {
   max-width: 640px;
 }

@@ -1,5 +1,6 @@
 import { config } from './config.js';
 import { applyI18n, setLang } from './i18n.js';
+import { initLibrary } from './library.js';
 import { loadTheme } from './theme.js';
 
 loadTheme();
@@ -37,6 +38,7 @@ const dialog = document.getElementById('disclaimer-dialog');
 document.getElementById('disclaimer-btn').addEventListener('click', () => dialog.showModal());
 document.getElementById('disclaimer-close').addEventListener('click', () => dialog.close());
 
+initLibrary(document.getElementById('library-list'));
 applyI18n();
 
 const canvas = document.getElementById('game');
