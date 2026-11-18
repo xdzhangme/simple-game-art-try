@@ -376,3 +376,199 @@ dialog .dis {
   padding-left: 22px;
 }
 
+
+/* Bottom button bar and pixel dialogs */
+.px-bottom-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.px-bar-btn {
+  padding: 4px 16px;
+  font-size: 20px;
+}
+
+.px-bar-summary {
+  margin-left: auto;
+  font-family: var(--font-pixel);
+  font-size: 18px;
+  color: var(--ink);
+}
+
+dialog.px-dialog {
+  width: min(720px, 92vw);
+  max-width: none;
+  max-height: 86vh;
+  padding: 0;
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  overflow: auto;
+}
+
+dialog.px-dialog::backdrop {
+  background: rgba(26, 28, 44, 0.7);
+}
+
+.px-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 4px 14px;
+}
+
+.px-dialog-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.px-dialog-x {
+  padding: 0 10px;
+  font-size: 22px;
+}
+
+.px-dialog-body {
+  padding: 16px;
+}
+
+.px-dialog-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.px-h {
+  margin: 12px 0 6px;
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.px-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-pixel);
+  font-size: 20px;
+}
+
+.px-select {
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  background: var(--wall);
+  color: var(--ink);
+  font: 16px var(--font-read);
+  padding: 2px 6px;
+}
+
+.px-bar {
+  display: flex;
+  gap: 2px;
+  height: 22px;
+  padding: 2px;
+  border: 3px solid var(--ink);
+  background: var(--wall);
+}
+
+.px-bar i {
+  flex: 1;
+  background: var(--panel-dark);
+}
+
+.px-bar i.f {
+  background: var(--accent);
+}
+
+.px-tasks,
+.px-rooms {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.px-tasks li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.px-tasks li > span:nth-child(2) {
+  flex: 1;
+}
+
+.px-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--ink);
+  background: var(--wall);
+  color: var(--done);
+  font-family: var(--font-pixel);
+  line-height: 1;
+}
+
+.is-done .px-check {
+  background: var(--done);
+  color: var(--on-accent);
+}
+
+.px-btn--small {
+  font-size: 16px;
+  padding: 0 8px;
+}
+
+.px-map-layout {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 16px;
+  align-items: start;
+}
+
+.px-overview-wrap {
+  max-height: 55vh;
+  overflow: auto;
+  border: 3px solid var(--ink);
+  background: #1a1c2c;
+}
+
+.px-overview {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.px-rooms li {
+  margin-bottom: 6px;
+}
+
+.px-btn--room {
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 16px;
+}
+
+.px-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--panel-dark);
+}
+
+.px-seg {
+  display: flex;
+  gap: 6px;
+}
+
+.px-step-count {
+  font-family: var(--font-pixel);
+  color: var(--accent-dark);
+  margin: 0;
+}

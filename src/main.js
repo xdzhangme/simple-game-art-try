@@ -11,6 +11,8 @@ import { initRules } from './rules.js';
 import { drawProp, propBase, sprite } from './art/atlas.js';
 import { initCardPanel } from './panel.js';
 import { isCompleted, onProgressChange } from './progress.js';
+import { initButtons } from './buttons.js';
+import { playBlip } from './sound.js';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -65,7 +67,10 @@ const rewardProps = objects
 const SPARKLE_MS = 1200;
 const sparkles = new Map();
 onProgressChange((e) => {
-  if (e.type === 'complete') sparkles.set(e.useCaseId, performance.now());
+  if (e.type === 'complete') {
+    sparkles.set(e.useCaseId, performance.now());
+    playBlip();
+  }
   else sparkles.clear();
 });
 
@@ -122,6 +127,7 @@ const mapView = createMapView(
   },
 );
 loadTheme();
+initButtons({ container: document.getElementById('bottom-bar'), map: officeMap, useCases, player, mapView });
 
 let last = performance.now();
 function frame(now) {
