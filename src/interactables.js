@@ -34,13 +34,15 @@ export function nearestInteractable(map, objects, player) {
   return best;
 }
 
-// Yellow "!" bubble over each bound object (the object art itself is a map prop);
-// the E prompt is drawn above the object that is in range.
-export function drawInteractables(ctx, map, objects, active, camX, camY, colors) {
+// Bubble over each bound object in the current room only: yellow "!" = not done, green check = done.
+// The E prompt is drawn above the object that is in range.
+export function drawInteractables(ctx, map, objects, active, camX, camY, colors, room = null, isDone = () => false) {
   const t = map.tileSize;
-  const bubble = sprite('bubble');
+  const open = sprite('bubble');
+  const done = sprite('bubble-done');
   for (const o of objects) {
-    ctx.drawImage(bubble, Math.round(o.x * t - camX + t / 2 - 6), Math.round(o.y * t - camY - 24));
+    if (!room || o.x < room.x || o.x >= room.x + room.w || o.y < room.y || o.y >= room.y + room.h) continue;
+    ctx.drawImage(isDone(o.useCaseId) ? done : open, Math.round(o.x * t - camX + t / 2 - 6), Math.round(o.y * t - camY - 24));
   }
   if (!active) return;
   const px = active.x * t - camX + t / 2;
