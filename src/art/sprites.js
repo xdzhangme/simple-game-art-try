@@ -711,6 +711,30 @@ function bubble() {
   });
 }
 
+function bubbleDone() {
+  return draw(12, 14, (d) => {
+    d.box(0, 0, 12, 11, 'd', { hl: 'W' });
+    d.rect(5, 11, 2, 2, 'o');
+    d.px(5, 11, 'd');
+    d.px(6, 11, 'd');
+    d.rect(2, 5, 2, 2, 'W');
+    d.rect(4, 6, 2, 2, 'W');
+    d.rect(6, 4, 2, 2, 'W');
+    d.rect(8, 2, 2, 2, 'W');
+  });
+}
+
+// Guide arrow pointing down (the caller bobs it)
+function guideArrow() {
+  return draw(14, 14, (d) => {
+    d.rect(0, 0, 14, 14, 'o');
+    d.rect(1, 1, 12, 12, 'm');
+    d.rect(5, 2, 4, 5, 'i');
+    d.rect(3, 7, 8, 2, 'i');
+    d.rect(5, 9, 4, 2, 'i');
+  });
+}
+
 function sparkle() {
   return draw(8, 8, (d) => {
     d.rect(3, 0, 2, 8, 'W');
@@ -827,6 +851,8 @@ export const SPRITES = {
   stairs: stairs(),
   'meeting-table': meetingTable(),
   bubble: bubble(),
+  'bubble-done': bubbleDone(),
+  'guide-arrow': guideArrow(),
   sparkle: sparkle(),
   'reward-plant-fern': rewardPlant(),
   'reward-poster-welcome': rewardPoster(),

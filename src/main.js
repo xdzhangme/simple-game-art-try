@@ -11,7 +11,9 @@ import { drawInteractables, loadObjects, nearestInteractable } from './interacta
 import { initRules } from './rules.js';
 import { drawProp, propBase, sprite } from './art/atlas.js';
 import { initCardPanel } from './panel.js';
-import { isCompleted, onProgressChange } from './progress.js';
+import { isCompleted, completedIds, onProgressChange } from './progress.js';
+import { decorLevel, decorSpots, doorFor, roomAtPixel, roomProgress } from './rooms.js';
+import { initGuide } from './guide.js';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -121,7 +123,54 @@ function drawSparkle(ctx, map, p, camX, camY, age) {
 function playerColors() {
   const css = getComputedStyle(document.documentElement);
   const v = (name) => css.getPropertyValue(name).trim();
-  return { outline: v('--ink'), marker: v('--marker') };
+  return { outline: v('--ink'), marker: v('--marker'), done: v('--done'), accent: v('--accent'), onAccent: v('--on-accent') };
+}
+
+const guide = initGuide(officeMap, document.body);
+const caseRooms = officeMap.rooms.filter((r) => r.type === 'department' || r.type === 'general');
+const signs = new Map(
+  caseRooms.map((r) => [r.id, officeMap.props.find((p) => p.sprite.startsWith('sign-') && p.x >= r.x && p.x < r.x + r.w && p.y === r.y - 1)]),
+);
+
+// Extra decor props for rooms whose progress has grown.
+function decorProps() {
+  const done = completedIds();
+  return caseRooms.flatMap((r) => decorSpots(officeMap, r).slice(0, decorLevel(roomProgress(r, useCases, done))));
+}
+
+// Progress plate ("FINANCE 2/5") above each room sign.
+function drawRoomSigns(ctx, camX, camY, colors) {
+  const t = officeMap.tileSize;
+  const done = completedIds();
+  ctx.font = '12px "Jersey 10", monospace';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'alphabetic';
+  caseRooms.forEach((r) => {
+    const sign = signs.get(r.id);
+    const prog = roomProgress(r, useCases, done);
+    if (!sign || !prog.total) return;
+    const label = `${r.name.toUpperCase()} ${prog.done}/${prog.total}`;
+    const w = Math.ceil(ctx.measureText(label).width) + 6;
+    const cx = sign.x * t + t - camX;
+    const y = sign.y * t - 11 - camY;
+    ctx.fillStyle = colors.outline;
+    ctx.fillRect(Math.round(cx - w / 2) - 1, y - 1, w + 2, 12);
+    ctx.fillStyle = prog.done === prog.total ? colors.done : colors.accent;
+    ctx.fillRect(Math.round(cx - w / 2), y, w, 10);
+    ctx.fillStyle = colors.onAccent;
+    ctx.fillText(label, Math.round(cx), y + 8);
+  });
+}
+
+// Bobbing arrow above the door of the room picked on first run.
+function drawGuideArrow(ctx, now, camX, camY) {
+  const id = guide.target();
+  const room = officeMap.rooms.find((r) => r.id === id);
+  const door = room && doorFor(officeMap, room);
+  if (!door) return;
+  const t = officeMap.tileSize;
+  const bob = Math.round(Math.sin(now / 200) * 3);
+  ctx.drawImage(sprite('guide-arrow'), Math.round(door.x * t + t / 2 - 7 - camX), Math.round(door.y * t - 20 - camY + bob));
 }
 
 const mapView = createMapView(
@@ -131,7 +180,7 @@ const mapView = createMapView(
   (ctx, camX, camY) => {
     const colors = playerColors();
     const t = officeMap.tileSize;
-    const props = (officeMap.props ?? []).filter((p) => {
+    const props = [...(officeMap.props ?? []), ...decorProps()].filter((p) => {
       const x = p.x * t - camX;
       const y = (p.y + (p.h ?? 1)) * t - camY;
       return x > -80 && x < 1400 && y > -8 && y < 1400;
@@ -153,7 +202,11 @@ const mapView = createMapView(
       const at = sparkles.get(p.useCaseId);
       if (unlocked && at !== undefined && now - at < SPARKLE_MS) drawSparkle(ctx, officeMap, p, camX, camY, (now - at) / SPARKLE_MS);
     });
-    drawInteractables(ctx, officeMap, objects, active, camX, camY, colors);
+    const room = roomAtPixel(officeMap, player.x, player.y - 2);
+    if (room && room.id === guide.target()) guide.arrive();
+    drawRoomSigns(ctx, camX, camY, colors);
+    drawInteractables(ctx, officeMap, objects, active, camX, camY, colors, room, isCompleted);
+    drawGuideArrow(ctx, now, camX, camY);
   },
 );
 loadTheme();
