@@ -3,7 +3,8 @@ import { applyI18n, setLang } from './i18n.js';
 import { initLibrary } from './library.js';
 import { loadTheme } from './theme.js';
 import officeMap from './data/office-map.json';
-import { createPlayer, drawPlayer } from './player.js';
+import { blocked, createPlayer, drawPlayer } from './player.js';
+import { OPEN_USE_CASE } from './rules.js';
 import { createMapView } from './tilemap.js';
 import useCases from './data/use-cases.json';
 import { drawInteractables, loadObjects, nearestInteractable } from './interactables.js';
@@ -15,6 +16,18 @@ import { isCompleted, onProgressChange } from './progress.js';
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
 document.getElementById('company').textContent = config.companyName;
+
+// A free tile next to the object (below first), as feet position; null if none is free.
+function standingSpot(map, o) {
+  const t = map.tileSize;
+  const sides = [[0, 1, 'up'], [-1, 0, 'right'], [1, 0, 'left'], [0, -1, 'down'], [-1, 1, 'up'], [1, 1, 'up'], [-1, -1, 'down'], [1, -1, 'down']];
+  for (const [dx, dy, facing] of sides) {
+    const x = (o.x + dx + 0.5) * t;
+    const y = (o.y + dy + 1) * t - 1;
+    if (!blocked(map, x, y)) return { x, y, facing };
+  }
+  return null;
+}
 
 const tabs = [...document.querySelectorAll('[data-tab]')];
 function showTab(name) {
@@ -45,12 +58,34 @@ const dialog = document.getElementById('disclaimer-dialog');
 document.getElementById('disclaimer-btn').addEventListener('click', () => dialog.showModal());
 document.getElementById('disclaimer-close').addEventListener('click', () => dialog.close());
 
-initLibrary(document.getElementById('library-list'));
-applyI18n();
-
 const gamePanel = document.getElementById('panel-game');
 const player = createPlayer(officeMap, () => !gamePanel.hidden);
 const objects = loadObjects(officeMap, useCases);
+
+// "Open in game" from a Library card: switch tab, stand next to the object and open its card.
+// Returns false (and changes nothing) when the use case has no map object.
+function openInGame(useCaseId) {
+  const object = objects.find((o) => o.useCaseId === useCaseId);
+  if (!object) return false;
+  const spot = standingSpot(officeMap, object);
+  if (spot) {
+    player.x = spot.x;
+    player.y = spot.y;
+    player.facing = spot.facing;
+  }
+  showTab('game');
+  mapView.setTarget(player.x, player.y - 8);
+  mapView.snap();
+  active = nearestInteractable(officeMap, objects, player);
+  window.dispatchEvent(new CustomEvent(OPEN_USE_CASE, { detail: { useCaseId, objectId: object.id } }));
+  return true;
+}
+
+initLibrary(document.getElementById('library-list'), {
+  hasObject: (id) => objects.some((o) => o.useCaseId === id),
+  onOpenInGame: openInGame,
+});
+applyI18n();
 let active = null;
 initRules(window, () => active, () => !gamePanel.hidden);
 initCardPanel(document.getElementById('card'), useCases);
@@ -129,6 +164,7 @@ function frame(now) {
   last = now;
   if (!gamePanel.hidden) {
     player.update(dt);
+    active = nearestInteractable(officeMap, objects, player);
     mapView.setTarget(player.x, player.y - 8);
     mapView.step(dt);
   }
