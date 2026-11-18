@@ -462,15 +462,19 @@ function plant() {
     d.rect(7, 8, 2, 10, 'V');
     d.rect(3, 9, 5, 4, 'v');
     d.rect(8, 5, 5, 5, 'v');
-    d.rect(5, 2, 6, 5, 'v');
+    d.rect(5, 1, 6, 6, 'v');
     d.rect(2, 12, 5, 3, 'v');
     d.rect(9, 12, 5, 3, 'v');
-    d.rect(6, 4, 1, 3, 'V');
+    d.rect(6, 3, 1, 4, 'V');
     d.rect(10, 7, 1, 3, 'V');
     d.rect(4, 11, 1, 2, 'V');
     d.rect(11, 13, 1, 2, 'V');
-    d.box(4, 16, 8, 8, 'p', { hl: 'W', sh: 'P' });
-    d.rect(4, 16, 8, 1, 'o');
+    d.rect(1, 10, 2, 2, 'v');
+    d.rect(13, 9, 2, 2, 'v');
+    d.rect(7, 1, 1, 2, 'o');
+    d.box(4, 16, 8, 8, 'b', { hl: 'W', sh: 'B' });
+    d.rect(3, 16, 10, 2, 'o');
+    d.rect(4, 17, 8, 1, 'B');
   });
 }
 
@@ -486,12 +490,15 @@ function bin() {
 
 function cooler() {
   return draw(16, 24, (d) => {
-    d.box(4, 1, 8, 9, 'c', { hl: 'W' });
+    d.box(4, 0, 8, 10, 'c', { hl: 'W' });
     d.rect(5, 3, 2, 5, 'W');
+    d.rect(5, 6, 6, 1, 'a');
     d.box(3, 10, 10, 14, 'p', { hl: 'W', sh: 'P' });
-    d.rect(6, 13, 2, 2, 'a');
-    d.rect(9, 13, 2, 2, 'r');
-    d.rect(5, 19, 6, 2, 'P');
+    d.rect(5, 13, 6, 4, 'A');
+    d.rect(6, 14, 1, 1, 'a');
+    d.rect(9, 14, 1, 1, 'r');
+    d.rect(6, 16, 4, 1, 'W');
+    d.rect(5, 20, 6, 2, 'P');
   });
 }
 
@@ -521,6 +528,11 @@ function desk() {
     d.rect(3, 12, 3, 3, 'm');
     d.rect(24, 12, 4, 3, 'W');
     d.rect(25, 13, 2, 1, 'a');
+    d.rect(7, 12, 3, 3, 'W');
+    d.rect(7, 13, 3, 1, 'c');
+    d.rect(10, 13, 1, 1, 'o');
+    d.rect(22, 11, 1, 2, 'r');
+    d.rect(21, 12, 3, 1, 'o');
   });
 }
 
@@ -540,6 +552,12 @@ function sofa() {
     d.box(27, 4, 5, 11, 'A', { hl: 'a' });
     d.box(4, 8, 24, 7, 'a', { hl: 'W' });
     d.rect(15, 9, 1, 5, 'A');
+    d.rect(6, 2, 6, 5, 'm');
+    d.rect(7, 3, 4, 1, 'W');
+    d.rect(21, 2, 6, 5, 'p');
+    d.rect(21, 6, 6, 1, 'P');
+    d.rect(3, 14, 2, 2, 'B');
+    d.rect(27, 14, 2, 2, 'B');
   });
 }
 
@@ -577,6 +595,10 @@ function rug(w, h) {
   const ph = h * 16;
   return draw(pw, ph, (d) => {
     d.rect(0, 0, pw, ph, 'o');
+    for (let y = 2; y < ph - 1; y += 3) {
+      d.px(0, y, 'P');
+      d.px(pw - 1, y, 'P');
+    }
     d.rect(1, 1, pw - 2, ph - 2, 'm');
     d.rect(3, 3, pw - 6, ph - 6, 'a');
     d.rect(5, 5, pw - 10, ph - 10, 'p');
@@ -593,8 +615,13 @@ function lamp() {
   return draw(16, 24, (d) => {
     d.rect(5, 22, 6, 2, 'o');
     d.rect(7, 9, 2, 13, 'B');
+    d.rect(4, 0, 8, 1, 'o');
     d.box(3, 1, 10, 9, 'm', { hl: 'W' });
+    d.rect(5, 3, 6, 4, 'W');
     d.rect(4, 8, 8, 1, 'b');
+    d.rect(5, 20, 6, 1, 'o');
+    d.px(10, 10, 'o');
+    d.px(10, 11, 'o');
   });
 }
 
@@ -624,6 +651,7 @@ function wallClock() {
     d.rect(4, 3, 8, 10, 'o');
     d.rect(3, 4, 10, 8, 'o');
     d.rect(4, 4, 8, 8, 'W');
+    for (const [x, y] of [[7, 4], [7, 11], [4, 7], [11, 7]]) d.px(x, y, 'a');
     d.rect(7, 5, 1, 3, 'i');
     d.rect(8, 8, 3, 1, 'i');
     d.px(7, 8, 'r');
@@ -639,6 +667,9 @@ function whiteboard() {
     d.rect(4, 9, 8, 1, 'P');
     d.rect(14, 9, 10, 1, 'P');
     d.rect(10, 13, 12, 1, 'A');
+    d.rect(4, 12, 3, 1, 'c');
+    d.rect(8, 12, 3, 1, 'r');
+    d.rect(23, 12, 4, 1, 'i');
   });
 }
 
@@ -664,15 +695,23 @@ function shelf() {
         d.rect(3 + i * 2, y + 7 - h, 2, h, BOOKS[(i + row * 3) % BOOKS.length]);
       }
     }
+    d.rect(24, 8, 5, 3, 'v');
+    d.rect(25, 7, 3, 1, 'v');
+    d.rect(25, 10, 3, 1, 'V');
+    d.rect(23, 17, 6, 3, 'W');
   });
 }
 
 function cabinet() {
   return draw(16, 24, (d) => {
     d.box(2, 2, 12, 22, 'l', { hl: 'p', sh: 'L' });
+    d.rect(3, 7, 10, 1, 'L');
     d.rect(3, 12, 10, 1, 'L');
-    d.rect(7, 7, 2, 1, 'o');
-    d.rect(7, 17, 2, 1, 'o');
+    d.rect(3, 17, 10, 1, 'L');
+    for (const y of [4, 9, 14, 19]) {
+      d.rect(6, y, 4, 2, 'p');
+      d.rect(7, y + 1, 2, 1, 'o');
+    }
   });
 }
 
@@ -684,6 +723,9 @@ function printer() {
     d.rect(5, 10, 10, 3, 'o');
     d.rect(22, 10, 4, 2, 'd');
     d.rect(8, 17, 16, 2, 'P');
+    d.rect(6, 5, 20, 1, 'o');
+    d.rect(16, 10, 4, 2, 'c');
+    d.rect(24, 12, 4, 3, 'P');
     d.rect(3, 21, 2, 3, 'o');
     d.rect(27, 21, 2, 3, 'o');
   });
@@ -693,8 +735,10 @@ function boxes() {
   return draw(16, 16, (d) => {
     d.box(1, 6, 10, 10, 'b', { hl: 'W' });
     d.rect(5, 6, 2, 10, 'B');
+    d.rect(7, 12, 3, 2, 'W');
     d.box(8, 1, 7, 8, 'b', { hl: 'W' });
     d.rect(11, 1, 1, 8, 'B');
+    d.rect(9, 5, 1, 2, 'B');
   });
 }
 
@@ -738,9 +782,12 @@ function fridge() {
 function coffeeMachine() {
   return draw(16, 16, (d) => {
     d.box(3, 1, 10, 13, 'A', { hl: 'a' });
-    d.rect(5, 4, 6, 3, 'i');
-    d.rect(6, 8, 4, 6, 'W');
+    d.rect(5, 3, 6, 3, 'i');
+    d.px(6, 4, 'm');
+    d.px(9, 4, 'd');
+    d.rect(6, 7, 4, 7, 'W');
     d.rect(7, 10, 2, 3, 'B');
+    d.px(11, 9, 'W');
     d.rect(4, 14, 8, 1, 'o');
   });
 }
