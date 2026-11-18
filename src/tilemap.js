@@ -87,5 +87,10 @@ export function createMapView(canvas, container, map, drawOverlay) {
       redraw();
     },
     redraw,
+    // Jumps the camera straight to the target (no easing); applied on the next redraw/resize.
+    snap() {
+      cam = null;
+      redraw();
+    },
   };
 }

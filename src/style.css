@@ -213,6 +213,13 @@ dialog {
   padding: 20px;
 }
 
+.pick-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
 dialog h2 {
   margin-top: 0;
 }

@@ -110,7 +110,7 @@ export function initButtons({ container, map, useCases, player, mapView }) {
     deptRooms.forEach((r) => select.append(new Option(roomLabel(r), r.id)));
     select.value = mine?.id ?? '';
     select.addEventListener('change', () => {
-      store(DEPT_KEY, select.value || null);
+      store(DEPT_KEY, select.value || 'none');
       refresh('tasks');
     });
     label.append(select);
@@ -303,6 +303,8 @@ export function initButtons({ container, map, useCases, player, mapView }) {
   if (!load(TUTORIAL_KEY)) {
     store(TUTORIAL_KEY, '1');
     step = 0;
-    open('tutorial');
+    const picker = document.getElementById('department-dialog');
+    if (picker?.open) picker.addEventListener('close', () => open('tutorial'));
+    else open('tutorial');
   }
 }
