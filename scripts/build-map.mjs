@@ -144,7 +144,7 @@ const DECOR = {
   },
 };
 
-const WALL_SPRITES = new Set(['window', 'frame', 'clock', 'poster', 'whiteboard', 'chart', 'monitors', 'ledger']);
+const WALL_SPRITES = new Set(['window', 'frame', 'clock', 'poster', 'whiteboard', 'chart', 'monitors', 'ledger', 'pinboard']);
 
 // Extra decoration is placed only where it cannot overlap existing props or crowd a doorway.
 // Candidates that do not fit are skipped, so the lists can be generous.
@@ -172,6 +172,22 @@ function placeExtras(list, at, { xa, xb, cap, floors, doorX }) {
   });
 }
 
+// Second decoration pass inspired by general office prop variety (pinboards, copiers, folders, crates, extinguishers).
+const MORE = {
+  finance: [['pinboard', 5, 1, 2], ['extinguisher', -1, 5], ['folders', 8, 2], ['plant-bush', 0, 5]],
+  hr: [['pinboard', 1, 1, 2], ['plant-bush', 3, 7], ['folders', 7, 2], ['extinguisher', -1, 5]],
+  it: [['pinboard', 3, 1, 2], ['extinguisher', 0, 2], ['copier', 7, 2, 2], ['folders', 4, 7]],
+  sales: [['pinboard', 3, 1, 2], ['plant-bush', 0, 5], ['folders', 8, 2], ['extinguisher', -1, 7]],
+  legal: [['pinboard', 1, 1, 2], ['folders', 6, 7], ['plant-bush', -1, 7], ['extinguisher', -1, 5]],
+  ops: [['crate-stack', 4, 6], ['crate-stack', 6, 6], ['crate-stack', 8, 6], ['pinboard', 3, 1, 2], ['extinguisher', -1, 5]],
+  marketing: [['pinboard', 8, 1, 2], ['plant-bush', 0, 4], ['folders', 8, 7], ['extinguisher', -1, 5]],
+  procurement: [['pinboard', 3, 1, 2], ['crate-stack', 5, 7], ['crate-stack', 7, 7], ['folders', 8, 2], ['extinguisher', -1, 5]],
+  service: [['pinboard', 3, 1, 2], ['copier', 5, 2, 2], ['plant-bush', 7, 7], ['folders', 8, 7]],
+  print: [['copier', 3, 2, 2], ['pinboard', 5, 1, 2], ['crate-stack', 8, 6], ['folders', 2, 7], ['extinguisher', -1, 5]],
+  cafeteria: [['pinboard', 1, 1, 2], ['plant-bush', 0, 5], ['plant-bush', -1, 4], ['extinguisher', -1, 7]],
+  workspace: [['pinboard', 3, 1, 2], ['plant-bush', 3, 7], ['plant-bush', 7, 7], ['folders', 9, 7], ['extinguisher', -1, 5]],
+};
+
 function department(def, side) {
   const cap = CAPS[def.band];
   const xa = side === 'L' ? 1 + def.inset : 18;
@@ -193,7 +209,7 @@ function department(def, side) {
     chair(xa + dx, cap + dy + 1);
   });
   if (decor.layout) LAYOUTS[decor.layout].forEach(([dx, dy], i) => desk(def.id, i + 1, xa + dx, cap + dy));
-  placeExtras(decor.extra ?? [], at, { xa, xb, cap, floors: 6, doorX });
+  placeExtras([...(decor.extra ?? []), ...(MORE[def.id] ?? [])], at, { xa, xb, cap, floors: 6, doorX });
 }
 LEFT.forEach((d) => department(d, 'L'));
 RIGHT.forEach((d) => department(d, 'R'));

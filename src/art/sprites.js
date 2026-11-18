@@ -367,6 +367,71 @@ function ledger() {
   });
 }
 
+function extinguisher() {
+  return draw(16, 16, (d) => {
+    d.rect(6, 2, 4, 2, 'o');
+    d.rect(9, 3, 3, 1, 'o');
+    d.box(5, 4, 6, 11, 'r', { hl: 'W', sh: 'P' });
+    d.rect(6, 8, 4, 2, 'W');
+  });
+}
+
+function copier() {
+  return draw(32, 24, (d) => {
+    d.box(1, 8, 30, 15, 'p', { hl: 'W', sh: 'P' });
+    d.rect(3, 4, 26, 4, 'o');
+    d.rect(4, 5, 24, 2, 'c');
+    d.rect(4, 11, 8, 2, 'c');
+    d.rect(22, 11, 2, 2, 'd');
+    d.rect(26, 11, 2, 2, 'm');
+    d.rect(4, 16, 24, 5, 'P');
+    d.rect(6, 18, 20, 1, 'W');
+  });
+}
+
+function pinboard() {
+  return draw(32, 16, (d) => {
+    d.box(0, 1, 32, 14, 'b', { hl: 'W', sh: 'B' });
+    d.rect(3, 4, 7, 6, 'W');
+    d.rect(12, 5, 6, 7, 'm');
+    d.rect(20, 4, 8, 6, 'W');
+    d.rect(4, 6, 5, 1, 'g');
+    d.rect(21, 6, 6, 1, 'r');
+    d.px(6, 3, 'r');
+    d.px(15, 4, 'c');
+    d.px(24, 3, 'a');
+  });
+}
+
+function bushPlant() {
+  return draw(16, 24, (d) => {
+    d.rect(4, 4, 8, 8, 'v');
+    d.rect(2, 7, 12, 5, 'v');
+    d.rect(6, 2, 4, 4, 'v');
+    d.rect(5, 5, 2, 2, 'V');
+    d.rect(9, 8, 3, 2, 'V');
+    d.rect(7, 12, 2, 4, 'B');
+    d.box(4, 16, 8, 8, 'c', { hl: 'W', sh: 'A' });
+  });
+}
+
+function folders() {
+  return draw(16, 16, (d) => {
+    d.box(1, 10, 14, 5, 'm', { hl: 'W' });
+    d.box(2, 6, 12, 5, 'a', { hl: 'W' });
+    d.box(3, 3, 10, 4, 'r', { hl: 'W' });
+  });
+}
+
+function crateStack() {
+  return draw(16, 24, (d) => {
+    d.box(1, 12, 14, 11, 'b', { hl: 'W', sh: 'B' });
+    d.rect(7, 12, 2, 10, 'B');
+    d.box(3, 3, 10, 9, 'b', { hl: 'W', sh: 'B' });
+    d.rect(3, 6, 10, 1, 'B');
+  });
+}
+
 function tileFace() {
   return draw(16, 16, (d) => {
     d.rect(0, 0, 16, 16, 'F');
@@ -909,6 +974,12 @@ export const SPRITES = {
   microwave: microwave(),
   pallet: pallet(),
   ledger: ledger(),
+  extinguisher: extinguisher(),
+  copier: copier(),
+  pinboard: pinboard(),
+  'plant-bush': bushPlant(),
+  folders: folders(),
+  'crate-stack': crateStack(),
   face: tileFace(),
   door: tileDoor(),
   plant: plant(),
