@@ -194,6 +194,13 @@ const SIGN_ICONS = {
   workspace: (r) => {
     [[0, 0], [6, 0], [0, 6], [6, 6]].forEach(([x, y]) => r(x, y, 4, 4, 'W'));
   },
+  cafeteria: (r) => {
+    r(0, 4, 8, 5, 'W');
+    r(8, 5, 2, 3, 'W');
+    r(1, 9, 6, 1, 'W');
+    r(2, 0, 1, 3, 'W');
+    r(5, 0, 1, 3, 'W');
+  },
 };
 
 function signPlaque(name) {
@@ -285,6 +292,146 @@ function conveyor() {
   });
 }
 
+function scales() {
+  return draw(16, 24, (d) => {
+    d.rect(7, 6, 2, 14, 'B');
+    d.rect(4, 20, 8, 3, 'o');
+    d.rect(5, 20, 6, 2, 'b');
+    d.rect(2, 7, 12, 1, 'o');
+    d.rect(2, 8, 3, 1, 'o');
+    d.rect(11, 8, 3, 1, 'o');
+    d.rect(1, 9, 5, 2, 'a');
+    d.rect(10, 9, 5, 2, 'a');
+    d.rect(7, 4, 2, 3, 'm');
+  });
+}
+
+function trophy() {
+  return draw(16, 24, (d) => {
+    d.rect(5, 20, 6, 3, 'o');
+    d.rect(6, 20, 4, 2, 'b');
+    d.rect(7, 15, 2, 5, 'm');
+    d.box(4, 5, 8, 10, 'm', { hl: 'W' });
+    d.rect(2, 6, 2, 4, 'm');
+    d.rect(12, 6, 2, 4, 'm');
+  });
+}
+
+function coatRack() {
+  return draw(16, 24, (d) => {
+    d.rect(7, 3, 2, 19, 'B');
+    d.rect(4, 22, 8, 2, 'o');
+    d.rect(3, 5, 4, 2, 'B');
+    d.rect(9, 5, 4, 2, 'B');
+    d.rect(3, 7, 4, 8, 'a');
+    d.rect(9, 7, 4, 6, 'r');
+  });
+}
+
+function cactus() {
+  return draw(16, 24, (d) => {
+    d.rect(6, 6, 4, 10, 'v');
+    d.rect(3, 9, 3, 2, 'v');
+    d.rect(3, 7, 2, 3, 'v');
+    d.rect(10, 10, 3, 2, 'v');
+    d.rect(11, 8, 2, 3, 'v');
+    d.rect(7, 6, 1, 10, 'V');
+    d.box(4, 16, 8, 8, 'r', { hl: 'W', sh: 'P' });
+  });
+}
+
+function microwave() {
+  return draw(16, 16, (d) => {
+    d.box(1, 4, 14, 10, 'p', { hl: 'W', sh: 'P' });
+    d.rect(3, 6, 7, 6, 'c');
+    d.rect(11, 6, 2, 1, 'm');
+    d.rect(11, 8, 2, 1, 'd');
+  });
+}
+
+function pallet() {
+  return draw(32, 16, (d) => {
+    d.rect(0, 12, 32, 4, 'o');
+    d.rect(1, 12, 30, 2, 'b');
+    d.box(3, 2, 12, 10, 'b', { hl: 'W', sh: 'B' });
+    d.box(17, 4, 11, 8, 'b', { hl: 'W', sh: 'B' });
+  });
+}
+
+function ledger() {
+  return draw(16, 16, (d) => {
+    d.box(1, 2, 14, 12, 'W', { sh: 'P' });
+    for (let y = 5; y < 13; y += 2) d.rect(3, y, 10, 1, 'g');
+    d.rect(3, 4, 4, 1, 'a');
+    d.rect(9, 6, 4, 1, 'r');
+  });
+}
+
+function extinguisher() {
+  return draw(16, 16, (d) => {
+    d.rect(6, 2, 4, 2, 'o');
+    d.rect(9, 3, 3, 1, 'o');
+    d.box(5, 4, 6, 11, 'r', { hl: 'W', sh: 'P' });
+    d.rect(6, 8, 4, 2, 'W');
+  });
+}
+
+function copier() {
+  return draw(32, 24, (d) => {
+    d.box(1, 8, 30, 15, 'p', { hl: 'W', sh: 'P' });
+    d.rect(3, 4, 26, 4, 'o');
+    d.rect(4, 5, 24, 2, 'c');
+    d.rect(4, 11, 8, 2, 'c');
+    d.rect(22, 11, 2, 2, 'd');
+    d.rect(26, 11, 2, 2, 'm');
+    d.rect(4, 16, 24, 5, 'P');
+    d.rect(6, 18, 20, 1, 'W');
+  });
+}
+
+function pinboard() {
+  return draw(32, 16, (d) => {
+    d.box(0, 1, 32, 14, 'b', { hl: 'W', sh: 'B' });
+    d.rect(3, 4, 7, 6, 'W');
+    d.rect(12, 5, 6, 7, 'm');
+    d.rect(20, 4, 8, 6, 'W');
+    d.rect(4, 6, 5, 1, 'g');
+    d.rect(21, 6, 6, 1, 'r');
+    d.px(6, 3, 'r');
+    d.px(15, 4, 'c');
+    d.px(24, 3, 'a');
+  });
+}
+
+function bushPlant() {
+  return draw(16, 24, (d) => {
+    d.rect(4, 4, 8, 8, 'v');
+    d.rect(2, 7, 12, 5, 'v');
+    d.rect(6, 2, 4, 4, 'v');
+    d.rect(5, 5, 2, 2, 'V');
+    d.rect(9, 8, 3, 2, 'V');
+    d.rect(7, 12, 2, 4, 'B');
+    d.box(4, 16, 8, 8, 'c', { hl: 'W', sh: 'A' });
+  });
+}
+
+function folders() {
+  return draw(16, 16, (d) => {
+    d.box(1, 10, 14, 5, 'm', { hl: 'W' });
+    d.box(2, 6, 12, 5, 'a', { hl: 'W' });
+    d.box(3, 3, 10, 4, 'r', { hl: 'W' });
+  });
+}
+
+function crateStack() {
+  return draw(16, 24, (d) => {
+    d.box(1, 12, 14, 11, 'b', { hl: 'W', sh: 'B' });
+    d.rect(7, 12, 2, 10, 'B');
+    d.box(3, 3, 10, 9, 'b', { hl: 'W', sh: 'B' });
+    d.rect(3, 6, 10, 1, 'B');
+  });
+}
+
 function tileFace() {
   return draw(16, 16, (d) => {
     d.rect(0, 0, 16, 16, 'F');
@@ -301,9 +448,12 @@ function tileDoor() {
     d.rect(0, 0, 16, 16, 'f');
     d.rect(0, 0, 16, 1, 'g');
     d.rect(0, 0, 1, 16, 'g');
-    d.box(2, 2, 12, 12, 'b', { hl: 'W', sh: 'B' });
-    d.rect(5, 5, 6, 6, 'B');
-    d.rect(6, 6, 4, 4, 'b');
+    // open doorway: a threshold mat between two door-frame marks, so it does not read as a closed door
+    d.rect(5, 0, 6, 16, 'p');
+    d.rect(5, 0, 1, 16, 'g');
+    d.rect(10, 0, 1, 16, 'g');
+    d.rect(0, 0, 16, 2, 'a');
+    d.rect(0, 14, 16, 2, 'a');
   });
 }
 
@@ -817,6 +967,19 @@ export const SPRITES = {
   globe: globe(),
   easel: easel(),
   conveyor: conveyor(),
+  scales: scales(),
+  trophy: trophy(),
+  'coat-rack': coatRack(),
+  cactus: cactus(),
+  microwave: microwave(),
+  pallet: pallet(),
+  ledger: ledger(),
+  extinguisher: extinguisher(),
+  copier: copier(),
+  pinboard: pinboard(),
+  'plant-bush': bushPlant(),
+  folders: folders(),
+  'crate-stack': crateStack(),
   face: tileFace(),
   door: tileDoor(),
   plant: plant(),

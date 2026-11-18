@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "validate": "node scripts/validate-use-cases.mjs",
-    "build:map": "node scripts/build-map.mjs"
+    "build:map": "node scripts/build-map.mjs",
+    "check:map": "node scripts/check-reachability.mjs"
   },
   "devDependencies": {
     "vite": "^6.0.0"
