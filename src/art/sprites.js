@@ -33,6 +33,258 @@ function tileFloor() {
   });
 }
 
+// Floor pattern tiles: 't' is the room tint, 'u' a faint line, 'q' a slightly stronger shade.
+const FLOOR_PATTERNS = {
+  grid: tileFloor,
+  checker: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      d.rect(0, 0, 8, 8, 'u');
+      d.rect(8, 8, 8, 8, 'u');
+    }),
+  dots: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      for (const [x, y] of [[3, 3], [11, 3], [3, 11], [11, 11]]) d.rect(x, y, 2, 2, 'q');
+    }),
+  tiles8: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      d.rect(0, 0, 16, 1, 'u');
+      d.rect(0, 8, 16, 1, 'u');
+      d.rect(0, 0, 1, 16, 'u');
+      d.rect(8, 0, 1, 16, 'u');
+      d.rect(1, 1, 7, 1, 'q');
+      d.rect(9, 9, 7, 1, 'q');
+    }),
+  stripes: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      d.rect(0, 0, 4, 16, 'u');
+      d.rect(8, 0, 4, 16, 'u');
+    }),
+  bands: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      d.rect(0, 0, 16, 4, 'u');
+      d.rect(0, 8, 16, 4, 'u');
+      d.rect(0, 4, 16, 1, 'q');
+      d.rect(0, 12, 16, 1, 'q');
+    }),
+  planks: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      [0, 4, 8, 12].forEach((y, i) => {
+        d.rect(0, y, 16, 1, 'q');
+        d.rect([3, 11, 7, 14][i], y + 1, 1, 3, 'u');
+      });
+    }),
+  hatch: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      for (let i = 0; i < 16; i += 4) for (let k = 0; k < 16; k++) d.px((i + k) % 16, k, 'u');
+    }),
+  diamond: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      for (let k = 0; k < 8; k++) {
+        d.px(8 + k, k, 'q');
+        d.px(8 - k, k, 'q');
+        d.px(8 + k, 15 - k, 'q');
+        d.px(8 - k, 15 - k, 'q');
+      }
+      d.rect(7, 7, 2, 2, 'u');
+    }),
+  zigzag: () =>
+    draw(16, 16, (d) => {
+      d.rect(0, 0, 16, 16, 't');
+      for (let band = 0; band < 16; band += 8) {
+        for (let x = 0; x < 16; x++) {
+          const k = x % 8 < 4 ? x % 8 : 7 - (x % 8);
+          d.px(x, band + k, 'q');
+          d.px(x, band + k + 1, 'u');
+        }
+      }
+    }),
+};
+
+// Room sign plaques: 32x16 accent plate with a 10x10 white icon (rects relative to the icon origin).
+const SIGN_ICONS = {
+  finance: (r) => {
+    [[3, 4], [1, 8], [0, 10], [0, 10], [0, 10], [0, 10], [1, 8], [3, 4]].forEach(([x, w], y) => r(x, y + 1, w, 1, 'm'));
+    r(4, 3, 2, 5, 'A');
+  },
+  hr: (r) => {
+    r(3, 0, 4, 4, 'W');
+    r(1, 5, 8, 5, 'W');
+  },
+  it: (r) => {
+    r(2, 2, 6, 6, 'W');
+    [[0, 3], [0, 6], [8, 3], [8, 6]].forEach(([x, y]) => r(x, y, 2, 1, 'W'));
+    [[3, 0], [6, 0], [3, 8], [6, 8]].forEach(([x, y]) => r(x, y, 1, 2, 'W'));
+    r(4, 4, 2, 2, 'A');
+  },
+  sales: (r) => {
+    r(0, 6, 2, 4, 'W');
+    r(3, 4, 2, 6, 'W');
+    r(6, 2, 2, 8, 'W');
+    r(8, 0, 2, 2, 'm');
+  },
+  legal: (r) => {
+    r(4, 0, 2, 8, 'W');
+    r(0, 2, 10, 1, 'W');
+    r(0, 3, 1, 2, 'W');
+    r(9, 3, 1, 2, 'W');
+    r(0, 5, 3, 1, 'W');
+    r(7, 5, 3, 1, 'W');
+    r(2, 8, 6, 2, 'W');
+  },
+  ops: (r) => {
+    r(4, 0, 2, 10, 'W');
+    r(0, 4, 10, 2, 'W');
+    r(2, 2, 6, 6, 'W');
+    r(4, 4, 2, 2, 'A');
+  },
+  marketing: (r) => {
+    r(0, 3, 3, 4, 'W');
+    r(3, 2, 3, 6, 'W');
+    r(6, 1, 3, 8, 'W');
+    r(1, 7, 2, 3, 'W');
+    r(9, 4, 1, 2, 'm');
+  },
+  procurement: (r) => {
+    r(0, 2, 10, 8, 'W');
+    r(4, 2, 2, 8, 'A');
+    r(0, 0, 10, 2, 'W');
+  },
+  service: (r) => {
+    r(1, 0, 8, 1, 'W');
+    r(0, 1, 1, 6, 'W');
+    r(9, 1, 1, 6, 'W');
+    r(0, 5, 2, 4, 'W');
+    r(8, 5, 2, 4, 'W');
+    r(2, 8, 6, 1, 'W');
+  },
+  general: (r) => {
+    r(1, 3, 8, 4, 'W');
+    r(0, 7, 2, 3, 'W');
+    r(8, 7, 2, 3, 'W');
+    r(1, 0, 2, 2, 'W');
+    r(7, 0, 2, 2, 'W');
+  },
+  lobby: (r) => {
+    r(4, 0, 2, 10, 'W');
+    r(0, 4, 10, 2, 'W');
+    r(2, 2, 6, 6, 'm');
+  },
+  lounge: (r) => {
+    r(1, 3, 6, 6, 'W');
+    r(7, 4, 3, 3, 'W');
+    r(8, 5, 1, 1, 'A');
+    r(0, 9, 8, 1, 'W');
+    r(2, 0, 1, 2, 'W');
+    r(4, 0, 1, 2, 'W');
+  },
+  print: (r) => {
+    r(2, 0, 6, 3, 'W');
+    r(0, 3, 10, 4, 'W');
+    r(2, 7, 6, 3, 'W');
+    r(3, 8, 4, 1, 'A');
+  },
+  workspace: (r) => {
+    [[0, 0], [6, 0], [0, 6], [6, 6]].forEach(([x, y]) => r(x, y, 4, 4, 'W'));
+  },
+};
+
+function signPlaque(name) {
+  return draw(32, 16, (d) => {
+    d.box(0, 1, 32, 13, 'a', { hl: 'W', sh: 'A' });
+    SIGN_ICONS[name]((x, y, w, h, c) => d.rect(11 + x, 3 + y, w, h, c));
+  });
+}
+
+function server() {
+  return draw(16, 32, (d) => {
+    d.box(1, 2, 14, 30, 'P', { hl: 'W' });
+    for (let y = 5; y < 28; y += 5) {
+      d.rect(3, y, 10, 3, 'o');
+      d.rect(4, y + 1, 5, 1, 'c');
+      d.px(11, y + 1, y % 10 === 0 ? 'd' : 'm');
+    }
+  });
+}
+
+function wallChart() {
+  return draw(32, 16, (d) => {
+    d.box(1, 1, 30, 13, 'W', { sh: 'P' });
+    d.rect(5, 8, 3, 4, 'a');
+    d.rect(10, 6, 3, 6, 'A');
+    d.rect(15, 4, 3, 8, 'a');
+    d.rect(20, 5, 3, 7, 'A');
+    d.rect(25, 3, 2, 9, 'd');
+  });
+}
+
+function wallMonitors() {
+  return draw(32, 16, (d) => {
+    d.box(1, 2, 14, 10, 'i');
+    d.box(17, 2, 14, 10, 'i');
+    d.rect(3, 4, 10, 6, 'c');
+    d.rect(19, 4, 10, 6, 'c');
+    d.rect(4, 5, 4, 1, 'W');
+    d.rect(4, 7, 6, 1, 'W');
+    d.rect(20, 6, 8, 1, 'm');
+    d.rect(20, 8, 5, 1, 'W');
+  });
+}
+
+function safe() {
+  return draw(16, 24, (d) => {
+    d.box(1, 6, 14, 17, 'P', { hl: 'W', sh: 'A' });
+    d.rect(4, 9, 8, 10, 'p');
+    d.rect(6, 11, 4, 4, 'm');
+    d.px(7, 12, 'o');
+    d.rect(5, 21, 2, 2, 'o');
+    d.rect(9, 21, 2, 2, 'o');
+  });
+}
+
+function globe() {
+  return draw(16, 24, (d) => {
+    d.rect(7, 18, 2, 4, 'B');
+    d.rect(4, 21, 8, 2, 'o');
+    d.rect(3, 6, 10, 12, 'o');
+    d.rect(2, 8, 12, 8, 'o');
+    d.rect(3, 8, 10, 8, 'c');
+    d.rect(4, 7, 8, 10, 'c');
+    d.rect(4, 9, 4, 3, 'v');
+    d.rect(9, 12, 3, 3, 'v');
+    d.rect(7, 6, 1, 12, 'W');
+  });
+}
+
+function easel() {
+  return draw(16, 24, (d) => {
+    d.rect(3, 22, 2, 2, 'B');
+    d.rect(11, 22, 2, 2, 'B');
+    d.rect(7, 18, 2, 6, 'B');
+    d.box(2, 2, 12, 16, 'W', { sh: 'P' });
+    d.rect(4, 5, 4, 5, 'r');
+    d.rect(8, 8, 4, 4, 'c');
+    d.rect(5, 12, 6, 2, 'm');
+  });
+}
+
+function conveyor() {
+  return draw(32, 16, (d) => {
+    d.box(0, 8, 32, 8, 'P', { hl: 'W' });
+    d.rect(2, 11, 28, 2, 'o');
+    for (let x = 4; x < 30; x += 4) d.px(x, 12, 'W');
+    d.box(4, 2, 8, 7, 'b', { hl: 'W', sh: 'B' });
+    d.box(18, 4, 7, 5, 'b', { hl: 'W', sh: 'B' });
+  });
+}
+
 function tileFace() {
   return draw(16, 16, (d) => {
     d.rect(0, 0, 16, 16, 'F');
@@ -532,6 +784,15 @@ export const FRAMES = 4;
 
 export const SPRITES = {
   floor: tileFloor(),
+  ...Object.fromEntries(Object.entries(FLOOR_PATTERNS).map(([k, fn]) => [`floor-${k}`, fn()])),
+  ...Object.fromEntries(Object.keys(SIGN_ICONS).map((k) => [`sign-${k}`, signPlaque(k)])),
+  server: server(),
+  chart: wallChart(),
+  monitors: wallMonitors(),
+  safe: safe(),
+  globe: globe(),
+  easel: easel(),
+  conveyor: conveyor(),
   face: tileFace(),
   door: tileDoor(),
   plant: plant(),

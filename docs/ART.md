@@ -19,3 +19,7 @@ All art is original and procedural. No external artwork is used.
 ## Engine changes
 
 Placeholders were replaced via the atlas. The only behavior change is the walk cycle in `src/player.js`.
+
+## Room identity
+
+Each room has its own floor pattern (loor in ooms[]: grid, checker, dots, tiles8, stripes, bands, planks, hatch, diamond, zigzag), a wall sign plaque with a room icon (sign-<room id> sprites), a distinct furniture set and desk layout (see LAYOUTS and DECOR in scripts/build-map.mjs). Patterns use the room tint plus two shades mixed from the theme outline color, so they recolor with the theme.
