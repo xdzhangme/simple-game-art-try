@@ -47,7 +47,7 @@ Site header + tabs (normal UI)
 | `done` | `#4fa95c` | Completed check |
 | `locked` | `#b2bac6` (outline `#7a8498`) | Locked silhouettes |
 
-Room floor tints (soft, one per room, from config): mint `#d9eee4`, lavender `#e6e0f2`, blush `#f6dede`, sky `#d3e3f4`, butter `#f3ead0`, sage `#d8eadb`, peach `#f3e4d6`, ice `#d6e9f0`, sand `#e7e3d3`, grey `#e1e6ea`.
+Room floor tints (soft, one per room, from config): mint `#c9e8d8`, lavender `#ddd3f0`, blush `#f2cfcf`, sky `#c4dbf2`, butter `#f0e2b8`, sage `#cbe3cf`, peach `#f1d9c3`, ice `#c4e1ec`, sand `#e0d9bf`, grey `#d6dde2`. Each room also has its own floor pattern (`floor` in the room data: grid, checker, dots, tiles8, stripes, bands, planks, hatch, diamond, zigzag), a wall sign plaque with a room icon, and its own furniture set and desk layout.
 
 ## 5. Character
 

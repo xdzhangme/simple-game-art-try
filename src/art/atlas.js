@@ -34,7 +34,8 @@ export function sprite(name, { tint = null, locked = false } = {}) {
   const base = tint ? pal[`tint${tint[0].toUpperCase()}${tint.slice(1)}`] ?? pal.floor : pal.floor;
   const colors = { ...Object.fromEntries(Object.entries(INDEX).map(([ch, token]) => [ch, pal[token]])) };
   colors.t = base;
-  colors.u = tint ? mix(base, pal.outline, 0.1) : pal.grid;
+  colors.u = tint ? mix(base, pal.outline, 0.12) : pal.grid;
+  colors.q = mix(base, pal.outline, 0.22);
   canvas = document.createElement('canvas');
   canvas.width = rows[0].length;
   canvas.height = rows.length;
@@ -60,7 +61,7 @@ function tintAt(map, col, row) {
     grid = new Map();
     for (const r of map.rooms ?? []) {
       if (!r.tint) continue;
-      for (let y = r.y; y < r.y + r.h; y++) for (let x = r.x; x < r.x + r.w; x++) grid.set(`${x},${y}`, r.tint);
+      for (let y = r.y; y < r.y + r.h; y++) for (let x = r.x; x < r.x + r.w; x++) grid.set(`${x},${y}`, r);
     }
     roomTints.set(map, grid);
   }
@@ -87,8 +88,9 @@ export function drawTile(ctx, map, kindAt, col, row, px, py) {
   const t = map.tileSize;
   if (kind === 'wall') return drawWall(ctx, map, kindAt, col, row, px, py, t, pal);
   const name = kind === 'wallface' ? 'face' : kind === 'door' ? 'door' : 'floor';
-  const tint = name === 'floor' ? tintAt(map, col, row) : null;
-  ctx.drawImage(sprite(name, { tint }), px, py);
+  const room = name === 'floor' ? tintAt(map, col, row) : null;
+  const img = (room && sprite(`floor-${room.floor}`, { tint: room.tint })) || sprite(name, { tint: room?.tint ?? null });
+  ctx.drawImage(img, px, py);
 }
 
 // Draws a prop (or any sprite) with its bottom-left at the foot of its tile footprint.
