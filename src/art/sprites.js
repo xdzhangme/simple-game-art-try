@@ -194,6 +194,13 @@ const SIGN_ICONS = {
   workspace: (r) => {
     [[0, 0], [6, 0], [0, 6], [6, 6]].forEach(([x, y]) => r(x, y, 4, 4, 'W'));
   },
+  cafeteria: (r) => {
+    r(0, 4, 8, 5, 'W');
+    r(8, 5, 2, 3, 'W');
+    r(1, 9, 6, 1, 'W');
+    r(2, 0, 1, 3, 'W');
+    r(5, 0, 1, 3, 'W');
+  },
 };
 
 function signPlaque(name) {
@@ -285,6 +292,81 @@ function conveyor() {
   });
 }
 
+function scales() {
+  return draw(16, 24, (d) => {
+    d.rect(7, 6, 2, 14, 'B');
+    d.rect(4, 20, 8, 3, 'o');
+    d.rect(5, 20, 6, 2, 'b');
+    d.rect(2, 7, 12, 1, 'o');
+    d.rect(2, 8, 3, 1, 'o');
+    d.rect(11, 8, 3, 1, 'o');
+    d.rect(1, 9, 5, 2, 'a');
+    d.rect(10, 9, 5, 2, 'a');
+    d.rect(7, 4, 2, 3, 'm');
+  });
+}
+
+function trophy() {
+  return draw(16, 24, (d) => {
+    d.rect(5, 20, 6, 3, 'o');
+    d.rect(6, 20, 4, 2, 'b');
+    d.rect(7, 15, 2, 5, 'm');
+    d.box(4, 5, 8, 10, 'm', { hl: 'W' });
+    d.rect(2, 6, 2, 4, 'm');
+    d.rect(12, 6, 2, 4, 'm');
+  });
+}
+
+function coatRack() {
+  return draw(16, 24, (d) => {
+    d.rect(7, 3, 2, 19, 'B');
+    d.rect(4, 22, 8, 2, 'o');
+    d.rect(3, 5, 4, 2, 'B');
+    d.rect(9, 5, 4, 2, 'B');
+    d.rect(3, 7, 4, 8, 'a');
+    d.rect(9, 7, 4, 6, 'r');
+  });
+}
+
+function cactus() {
+  return draw(16, 24, (d) => {
+    d.rect(6, 6, 4, 10, 'v');
+    d.rect(3, 9, 3, 2, 'v');
+    d.rect(3, 7, 2, 3, 'v');
+    d.rect(10, 10, 3, 2, 'v');
+    d.rect(11, 8, 2, 3, 'v');
+    d.rect(7, 6, 1, 10, 'V');
+    d.box(4, 16, 8, 8, 'r', { hl: 'W', sh: 'P' });
+  });
+}
+
+function microwave() {
+  return draw(16, 16, (d) => {
+    d.box(1, 4, 14, 10, 'p', { hl: 'W', sh: 'P' });
+    d.rect(3, 6, 7, 6, 'c');
+    d.rect(11, 6, 2, 1, 'm');
+    d.rect(11, 8, 2, 1, 'd');
+  });
+}
+
+function pallet() {
+  return draw(32, 16, (d) => {
+    d.rect(0, 12, 32, 4, 'o');
+    d.rect(1, 12, 30, 2, 'b');
+    d.box(3, 2, 12, 10, 'b', { hl: 'W', sh: 'B' });
+    d.box(17, 4, 11, 8, 'b', { hl: 'W', sh: 'B' });
+  });
+}
+
+function ledger() {
+  return draw(16, 16, (d) => {
+    d.box(1, 2, 14, 12, 'W', { sh: 'P' });
+    for (let y = 5; y < 13; y += 2) d.rect(3, y, 10, 1, 'g');
+    d.rect(3, 4, 4, 1, 'a');
+    d.rect(9, 6, 4, 1, 'r');
+  });
+}
+
 function tileFace() {
   return draw(16, 16, (d) => {
     d.rect(0, 0, 16, 16, 'F');
@@ -301,9 +383,12 @@ function tileDoor() {
     d.rect(0, 0, 16, 16, 'f');
     d.rect(0, 0, 16, 1, 'g');
     d.rect(0, 0, 1, 16, 'g');
-    d.box(2, 2, 12, 12, 'b', { hl: 'W', sh: 'B' });
-    d.rect(5, 5, 6, 6, 'B');
-    d.rect(6, 6, 4, 4, 'b');
+    // open doorway: a threshold mat between two door-frame marks, so it does not read as a closed door
+    d.rect(5, 0, 6, 16, 'p');
+    d.rect(5, 0, 1, 16, 'g');
+    d.rect(10, 0, 1, 16, 'g');
+    d.rect(0, 0, 16, 2, 'a');
+    d.rect(0, 14, 16, 2, 'a');
   });
 }
 
@@ -817,6 +902,13 @@ export const SPRITES = {
   globe: globe(),
   easel: easel(),
   conveyor: conveyor(),
+  scales: scales(),
+  trophy: trophy(),
+  'coat-rack': coatRack(),
+  cactus: cactus(),
+  microwave: microwave(),
+  pallet: pallet(),
+  ledger: ledger(),
   face: tileFace(),
   door: tileDoor(),
   plant: plant(),
