@@ -53,6 +53,15 @@ Room floor tints (soft, one per room, from config): mint `#c9e8d8`, lavender `#d
 
 One default character, 16x24 px, small head with a dark outline (our earlier procedural version, not the larger concept-image figures), 4 directions x 3 walk frames (+ idle). Later: palette swaps as look rewards.
 
+### 5.1 Ambient NPCs
+
+Decorative NPCs (human coworkers, robots, hybrid creatures) idle or wander in rooms. They never block the player (not solid) and keep out of interaction slots, objects and doors.
+
+- Data: `src/data/npcs.json` lists NPCs by room id and look only; tiles are chosen at load time from each room's free floor, so NPCs follow layout changes.
+- Sprites: `src/art/npc-sprites.js` generates them procedurally (humans 16x24, 4 directions, walk frames). Outfits, robots and creatures use theme tokens; skin and hair use fixed natural tones.
+- Humans: 7 skin tones, hair styles (short, bald, long, braids, bun, curly, scarf), builds, heights, glasses, beards, and mobility aids (wheelchair, cane, white cane, prosthetic leg or arm). All are depicted with equal dignity and no stereotypes.
+- Wandering is disabled under `prefers-reduced-motion`.
+- Created programmatically; no image-generation API key was available, and third-party references were used as ideas only.
 ## 6. Map and rooms
 
 Data-driven tile map (sample has 15 spaces):

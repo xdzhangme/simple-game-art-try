@@ -1,0 +1,58 @@
+{
+  "_comment": "Ambient NPCs, placed per room (not by coordinates) so they survive map layout changes. kind: human | robot | creature. behavior: idle | wander.",
+  "npcs": [
+    { "id": "lobby-wheelchair-1", "room": "lobby", "kind": "human", "behavior": "wander", "look": { "skin": "#9a6238", "hair": "curly", "hairColor": "#3a2c28", "top": "done", "bottom": "accentDark", "wheelchair": true } },
+    { "id": "lobby-greeter-bot", "room": "lobby", "kind": "robot", "model": "screen", "color": "accent", "behavior": "idle" },
+    { "id": "lobby-cane-1", "room": "lobby", "kind": "human", "behavior": "wander", "look": { "skin": "#ecc19a", "hair": "short", "hairColor": "#aeb4bc", "top": "leafDark", "bottom": "accentDark", "cane": "wood", "glasses": "clear", "build": "slim" } },
+
+    { "id": "lounge-scarf-1", "room": "lounge", "kind": "human", "behavior": "wander", "look": { "skin": "#bf8153", "hair": "scarf", "scarf": "tintLavender", "top": "accentDark", "bottom": "accent" } },
+    { "id": "lounge-barista-bot", "room": "lounge", "kind": "robot", "model": "barista", "color": "tintMint", "accent": "red", "behavior": "idle" },
+    { "id": "lounge-mothcat", "room": "lounge", "kind": "creature", "model": "mothcat", "color": "tintPeach", "accent": "accent", "behavior": "wander" },
+    { "id": "lounge-prosthetic-1", "room": "lounge", "kind": "human", "behavior": "wander", "look": { "skin": "#d9a574", "hair": "bun", "hairColor": "#8a4a2c", "top": "red", "bottom": "accentDark", "prosthLeg": "right" } },
+
+    { "id": "finance-long-1", "room": "finance", "kind": "human", "behavior": "idle", "look": { "skin": "#744526", "hair": "braids", "hairColor": "#3a2c28", "top": "accent", "bottom": "accentDark" } },
+    { "id": "finance-tidy-bot", "room": "finance", "kind": "robot", "model": "tidy", "color": "tintSky", "behavior": "wander" },
+
+    { "id": "hr-wheelchair-1", "room": "hr", "kind": "human", "behavior": "idle", "look": { "skin": "#f6d5b8", "hair": "long", "hairColor": "#d8b45a", "top": "tintLavender", "bottom": "accentDark", "wheelchair": true, "glasses": "clear" } },
+    { "id": "hr-snowl", "room": "hr", "kind": "creature", "model": "snowl", "color": "tintBlush", "accent": "tintSage", "behavior": "wander" },
+
+    { "id": "it-android", "room": "it", "kind": "robot", "model": "android", "color": "accent", "behavior": "wander" },
+    { "id": "it-prosth-arm-1", "room": "it", "kind": "human", "behavior": "idle", "look": { "skin": "#52301c", "hair": "short", "hairColor": "#3a2c28", "top": "tintIce", "bottom": "accentDark", "prosthArm": true, "build": "broad" } },
+    { "id": "it-spider-bot", "room": "it", "kind": "robot", "model": "spider", "color": "tintButter", "behavior": "wander" },
+
+    { "id": "sales-short-1", "room": "sales", "kind": "human", "behavior": "wander", "look": { "skin": "#ecc19a", "hair": "curly", "hairColor": "#b8442c", "top": "red", "bottom": "accentDark", "height": "short" } },
+    { "id": "sales-jellyleaf", "room": "sales", "kind": "creature", "model": "jellyleaf", "color": "tintBlush", "accent": "tintSage", "behavior": "wander" },
+
+    { "id": "legal-white-cane-1", "room": "legal", "kind": "human", "behavior": "idle", "look": { "skin": "#744526", "hair": "short", "hairColor": "#3a2c28", "top": "accent", "bottom": "accentDark", "cane": "white", "glasses": "dark" } },
+    { "id": "legal-beard-1", "room": "legal", "kind": "human", "behavior": "wander", "look": { "skin": "#d9a574", "hair": "short", "hairColor": "#3a2c28", "beard": true, "top": "tintSky", "bottom": "accentDark", "build": "broad" } },
+
+    { "id": "ops-hauler-bot", "room": "ops", "kind": "robot", "model": "hauler", "color": "tintSage", "behavior": "wander" },
+    { "id": "ops-lantern-frog", "room": "ops", "kind": "creature", "model": "lanternfrog", "color": "leaf", "accent": "marker", "behavior": "idle" },
+    { "id": "ops-elder-1", "room": "ops", "kind": "human", "behavior": "wander", "look": { "skin": "#bf8153", "hair": "short", "hairColor": "#e6e8ec", "top": "done", "bottom": "accentDark", "glasses": "clear", "cane": "wood" } },
+
+    { "id": "marketing-drone", "room": "marketing", "kind": "robot", "model": "drone", "color": "tintPeach", "behavior": "wander" },
+    { "id": "marketing-bun-1", "room": "marketing", "kind": "human", "behavior": "idle", "look": { "skin": "#f6d5b8", "hair": "bun", "hairColor": "#4a7ac0", "top": "tintLavender", "bottom": "accentDark", "build": "slim" } },
+    { "id": "marketing-cloudram", "room": "marketing", "kind": "creature", "model": "cloudram", "color": "accentDark", "accent": "marker", "behavior": "wander" },
+
+    { "id": "procurement-wheelchair-1", "room": "procurement", "kind": "human", "behavior": "wander", "look": { "skin": "#d9a574", "hair": "scarf", "scarf": "accent", "top": "marker", "bottom": "accentDark", "wheelchair": true } },
+    { "id": "procurement-mushcrab", "room": "procurement", "kind": "creature", "model": "mushcrab", "color": "tintSand", "accent": "leaf", "behavior": "wander" },
+
+    { "id": "service-long-1", "room": "service", "kind": "human", "behavior": "wander", "look": { "skin": "#9a6238", "hair": "long", "hairColor": "#3a2c28", "top": "red", "bottom": "accentDark", "prosthLeg": "left" } },
+    { "id": "service-tv-bot", "room": "service", "kind": "robot", "model": "screen", "color": "tintMint", "behavior": "wander" },
+
+    { "id": "general-bald-1", "room": "general", "kind": "human", "behavior": "wander", "look": { "skin": "#52301c", "hair": "bald", "top": "accent", "bottom": "accentDark", "build": "broad", "glasses": "clear" } },
+    { "id": "general-wheelchair-1", "room": "general", "kind": "human", "behavior": "wander", "look": { "skin": "#ecc19a", "hair": "short", "hairColor": "#3a2c28", "top": "leafDark", "bottom": "accentDark", "wheelchair": true, "beard": true } },
+    { "id": "general-tidy-bot", "room": "general", "kind": "robot", "model": "tidy", "color": "tintButter", "behavior": "wander" },
+    { "id": "general-mothcat", "room": "general", "kind": "creature", "model": "mothcat", "color": "tintLavender", "accent": "red", "behavior": "wander" },
+
+    { "id": "print-android", "room": "print", "kind": "robot", "model": "android", "color": "tintGrey", "behavior": "idle" },
+    { "id": "print-short-1", "room": "print", "kind": "human", "behavior": "wander", "look": { "skin": "#bf8153", "hair": "curly", "hairColor": "#3a2c28", "top": "tintIce", "bottom": "accentDark", "height": "short" } },
+
+    { "id": "workspace-wheelchair-1", "room": "workspace", "kind": "human", "behavior": "wander", "look": { "skin": "#744526", "hair": "braids", "hairColor": "#3a2c28", "top": "tintSky", "bottom": "accentDark", "wheelchair": true } },
+    { "id": "workspace-drone", "room": "workspace", "kind": "robot", "model": "drone", "color": "tintMint", "behavior": "wander" },
+    { "id": "workspace-hauler", "room": "workspace", "kind": "robot", "model": "hauler", "color": "tintLavender", "behavior": "wander" },
+    { "id": "workspace-scarf-1", "room": "workspace", "kind": "human", "behavior": "idle", "look": { "skin": "#ecc19a", "hair": "scarf", "scarf": "red", "top": "accent", "bottom": "accentDark", "glasses": "clear" } },
+    { "id": "workspace-snowl", "room": "workspace", "kind": "creature", "model": "snowl", "color": "tintSky", "accent": "tintPeach", "behavior": "wander" },
+    { "id": "workspace-prosth-arm-1", "room": "workspace", "kind": "human", "behavior": "wander", "look": { "skin": "#f6d5b8", "hair": "long", "hairColor": "#8a4a2c", "top": "leafDark", "bottom": "accentDark", "prosthArm": true, "build": "slim" } }
+  ]
+}

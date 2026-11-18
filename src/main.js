@@ -16,6 +16,8 @@ import { playBlip } from './sound.js';
 import { isCompleted, completedIds, onProgressChange } from './progress.js';
 import { decorLevel, decorSpots, doorFor, roomAtPixel, roomProgress } from './rooms.js';
 import { initGuide } from './guide.js';
+import { createNpcs } from './npcs.js';
+import npcData from './data/npcs.json';
 
 document.title = config.companyName;
 document.getElementById('badge').textContent = config.badge;
@@ -131,6 +133,7 @@ function playerColors() {
   return { outline: v('--ink'), marker: v('--marker'), done: v('--done'), accent: v('--accent'), onAccent: v('--on-accent') };
 }
 
+const npcs = createNpcs(officeMap, npcData.npcs, { reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
 const guide = initGuide(officeMap, document.body);
 const caseRooms = officeMap.rooms.filter((r) => r.type === 'department' || r.type === 'general');
 const signs = new Map(
@@ -192,11 +195,12 @@ const mapView = createMapView(
     });
     // rugs lie on the floor; everything else is depth-sorted with the player by its base line
     props.filter((p) => p.layer === 'floor').forEach((p) => drawProp(ctx, officeMap, p, camX, camY));
-    const sorted = props.filter((p) => p.layer !== 'floor').sort((a, b) => propBase(officeMap, a) - propBase(officeMap, b));
-    let i = 0;
-    for (; i < sorted.length && propBase(officeMap, sorted[i]) <= player.y; i++) drawProp(ctx, officeMap, sorted[i], camX, camY);
-    drawPlayer(ctx, player, camX, camY);
-    for (; i < sorted.length; i++) drawProp(ctx, officeMap, sorted[i], camX, camY);
+    const sorted = [
+      ...props.filter((p) => p.layer !== 'floor').map((p) => ({ base: propBase(officeMap, p), draw: () => drawProp(ctx, officeMap, p, camX, camY) })),
+      ...npcs.drawables.filter((n) => Math.abs(n.base - player.y) < 1400).map((n) => ({ base: n.base, draw: () => n.draw(ctx, camX, camY) })),
+      { base: player.y + 0.5, draw: () => drawPlayer(ctx, player, camX, camY) },
+    ].sort((a, b) => a.base - b.base);
+    sorted.forEach((s) => s.draw());
     const now = performance.now();
     rewardProps.forEach((p) => {
       const x = p.x * t - camX;
@@ -223,6 +227,7 @@ function frame(now) {
   last = now;
   if (!gamePanel.hidden) {
     player.update(dt);
+    npcs.update(dt, player);
     active = nearestInteractable(officeMap, objects, player);
     mapView.setTarget(player.x, player.y - 8);
     mapView.step(dt);
