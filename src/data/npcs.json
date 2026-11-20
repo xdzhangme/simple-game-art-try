@@ -43,6 +43,11 @@
     { "id": "general-bald-1", "room": "general", "kind": "human", "behavior": "wander", "look": { "skin": "#52301c", "hair": "bald", "top": "accent", "bottom": "accentDark", "build": "broad", "glasses": "clear" } },
     { "id": "general-wheelchair-1", "room": "general", "kind": "human", "behavior": "wander", "look": { "skin": "#ecc19a", "hair": "short", "hairColor": "#3a2c28", "top": "leafDark", "bottom": "accentDark", "wheelchair": true, "beard": true } },
     { "id": "general-tidy-bot", "room": "general", "kind": "robot", "model": "tidy", "color": "tintButter", "behavior": "wander" },
+    { "id": "general-plantcat", "room": "general", "kind": "creature", "model": "plantcat", "color": "tintSage", "accent": "red", "behavior": "wander" },
+    { "id": "general-headphones-1", "room": "general", "kind": "human", "behavior": "wander", "look": { "skin": "#ecc19a", "hair": "short", "hairColor": "#b88a4a", "top": "accentDark", "bottom": "accent", "headphones": true, "backpack": true } },
+    { "id": "lounge-cloudblob", "room": "lounge", "kind": "creature", "model": "cloudblob", "color": "tintSky", "accent": "tintBlush", "behavior": "wander" },
+    { "id": "lounge-tentamug", "room": "lounge", "kind": "creature", "model": "tentamug", "color": "tintLavender", "accent": "accent", "behavior": "idle" },
+    { "id": "lobby-goblin", "room": "lobby", "kind": "creature", "model": "goblin", "color": "accentDark", "accent": "red", "behavior": "wander" },
     { "id": "general-mothcat", "room": "general", "kind": "creature", "model": "mothcat", "color": "tintLavender", "accent": "red", "behavior": "wander" },
 
     { "id": "print-android", "room": "print", "kind": "robot", "model": "android", "color": "tintGrey", "behavior": "idle" },

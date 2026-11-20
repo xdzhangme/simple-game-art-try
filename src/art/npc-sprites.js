@@ -82,6 +82,21 @@ function human(look, dir, frame) {
       d.rect(lx + 2 + swing, y(12), 2, 4, look.prosthArm ? 'g' : 'A');
       d.px(lx + 2 + swing, y(16), look.prosthArm ? 'G' : 's');
     }
+    // office details: lanyard with badge, backpack
+    if (look.badge !== false && dir === 'down') {
+      const bx = lx + (lw >> 1);
+      d.rect(bx, y(11), 1, 3, 'G');
+      d.rect(bx - 1, y(14), 2, 2, 'i');
+      d.px(bx, y(14), 'W');
+    }
+    if (look.backpack) {
+      if (dir === 'up') d.rect(lx, y(11), lw, 5, 'B');
+      else if (side) d.rect(lx - 1, y(11), 2, 5, 'B');
+      else {
+        d.rect(lx - 1, y(11), 1, 4, 'B');
+        d.rect(lx + lw, y(11), 1, 4, 'B');
+      }
+    }
     // hair and face
     const top = style === 'scarf' ? 'q' : 'h';
     if (dir === 'down') {
@@ -143,6 +158,16 @@ function human(look, dir, frame) {
         d.px(hx + 3, y(6), 'G');
       }
       if (look.beard) d.rect(hx, y(7), 3, 2, 'h');
+    }
+    if (look.headphones) {
+      if (side) {
+        d.rect(hx + 1, y(1), hw - 2, 1, 'G');
+        d.rect(hx + 2, y(5), 2, 3, 'G');
+      } else {
+        d.rect(hx, y(1), hw, 1, 'G');
+        d.rect(hx - 1, y(5), 1, 3, 'G');
+        d.rect(hx + hw, y(5), 1, 3, 'G');
+      }
     }
     wc ? chairLower(d, { side, dir, lx, lw, frame, y, look }) : legs(d, { side, lx, frame, y, look, sh });
     // walking aids
@@ -473,6 +498,80 @@ const CREATURES = {
     for (const x of [5, 8, 11]) d.rect(x, 13, 1, 2 - ((x + s) & 1), 'i');
     d.px(14, 7 - s, 'm');
     return [16, 16];
+  },
+  // cat with a flowering plant growing on its back
+  plantcat(d, f) {
+    const s = f & 1;
+    d.blob(8, 11, 5, 3, 'W');
+    d.blob(4, 8, 3, 3, 'W');
+    d.rect(2, 4, 2, 2, 'i');
+    d.rect(5, 4, 2, 2, 'i');
+    d.rect(3, 5, 1, 1, 'x');
+    d.px(3, 8, 'i');
+    d.px(6, 8, 'i');
+    d.px(4, 9, 'm');
+    d.blob(10, 9, 2, 1, 'v');
+    d.px(10, 5, 'V');
+    d.px(10, 6, 'V');
+    d.px(9, 7, 'v');
+    d.px(11, 7, 'v');
+    d.rect(9, 2 - s, 3, 2, 'x');
+    d.px(10, 2 - s, 'm');
+    d.rect(3, 14, 2, 1, 'i');
+    d.rect(10 + s, 14, 2, 1, 'i');
+    d.rect(13, 11 - s, 2, 1, 'W');
+    return [16, 16];
+  },
+  // friendly cloud blob
+  cloudblob(d, f) {
+    const s = f & 1;
+    d.blob(5, 9 - s, 3, 3, 'W');
+    d.blob(10, 8 - s, 4, 4, 'W');
+    d.blob(8, 10, 5, 3, 'W');
+    d.px(7, 9, 'i');
+    d.px(10, 9, 'i');
+    d.rect(8, 11, 2, 1, 'x');
+    d.rect(5, 12, 7, 1, 'A');
+    d.px(3, 14, 'x');
+    d.px(10, 15 - s, 'x');
+    return [16, 16];
+  },
+  // coffee mug with tentacles
+  tentamug(d, f) {
+    const s = f & 1;
+    d.box(4, 3, 8, 7, 'a', { hl: 'W' });
+    d.rect(5, 4, 6, 1, 'A');
+    d.rect(12, 5, 2, 3, 'i');
+    d.px(13, 6, 'a');
+    d.px(6, 7, 'i');
+    d.px(9, 7, 'i');
+    d.px(7 + s, 1, 'W');
+    d.px(8 - s, 0, 'W');
+    for (const x of [4, 6, 8, 10]) {
+      for (let row = 10; row < 15; row++) d.px(x + (((row + f * 2) >> 1) & 1), row, (row & 1) ? 'x' : 'X');
+    }
+    return [16, 15];
+  },
+  // leafy goblin coworker with small horns
+  goblin(d, f) {
+    const s = f & 1;
+    d.rect(4, 0, 1, 2, 'i');
+    d.rect(10, 0, 1, 2, 'i');
+    d.blob(7, 5, 4, 3, 'v');
+    d.rect(1, 4, 3, 2, 'v');
+    d.rect(11, 4, 3, 2, 'v');
+    d.px(5, 5, 'i');
+    d.px(9, 5, 'i');
+    d.rect(6, 7, 3, 1, 'i');
+    d.box(4, 9, 7, 6, 'a', { hl: 'W' });
+    d.rect(1, 10, 3, 1, 'v');
+    d.rect(11, 10 + s, 3, 1, 'v');
+    d.rect(5, 15, 2, 3, 'V');
+    d.rect(8, 15, 2, 3, 'V');
+    d.rect(4, 18, 3, 1, 'i');
+    d.rect(8, 18, 3, 1, 'i');
+    d.px(7, 10, 'm');
+    return [16, 19];
   },
   // frog with an anglerfish lantern
   lanternfrog(d, f) {
