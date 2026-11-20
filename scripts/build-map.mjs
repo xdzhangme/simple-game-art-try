@@ -175,17 +175,17 @@ function placeExtras(list, at, { xa, xb, cap, floors, doorX }) {
 // Second decoration pass inspired by general office prop variety (pinboards, copiers, folders, crates, extinguishers).
 const MORE = {
   finance: [['pinboard', 5, 1, 2], ['extinguisher', -1, 5], ['folders', 8, 2], ['plant-bush', 0, 5]],
-  hr: [['pinboard', 1, 1, 2], ['plant-bush', 3, 7], ['folders', 7, 2], ['extinguisher', -1, 5]],
+  hr: [['mug', 1, 2], ['mug', 6, 2], ['pinboard', 1, 1, 2], ['plant-bush', 3, 7], ['folders', 7, 2], ['extinguisher', -1, 5]],
   it: [['pinboard', 3, 1, 2], ['extinguisher', 0, 2], ['copier', 7, 2, 2], ['folders', 4, 7]],
-  sales: [['pinboard', 3, 1, 2], ['plant-bush', 0, 5], ['folders', 8, 2], ['extinguisher', -1, 7]],
+  sales: [['mug', 1, 2], ['mug', 6, 2], ['pinboard', 3, 1, 2], ['plant-bush', 0, 5], ['folders', 8, 2], ['extinguisher', -1, 7]],
   legal: [['pinboard', 1, 1, 2], ['folders', 6, 7], ['plant-bush', -1, 7], ['extinguisher', -1, 5]],
   ops: [['crate-stack', 4, 6], ['crate-stack', 6, 6], ['crate-stack', 8, 6], ['pinboard', 3, 1, 2], ['extinguisher', -1, 5]],
   marketing: [['pinboard', 8, 1, 2], ['plant-bush', 0, 4], ['folders', 8, 7], ['extinguisher', -1, 5]],
   procurement: [['pinboard', 3, 1, 2], ['crate-stack', 5, 7], ['crate-stack', 7, 7], ['folders', 8, 2], ['extinguisher', -1, 5]],
-  service: [['pinboard', 3, 1, 2], ['copier', 5, 2, 2], ['plant-bush', 7, 7], ['folders', 8, 7]],
+  service: [['mug', 1, 2], ['mug', 6, 2], ['pinboard', 3, 1, 2], ['copier', 5, 2, 2], ['plant-bush', 7, 7], ['folders', 8, 7]],
   print: [['copier', 3, 2, 2], ['pinboard', 5, 1, 2], ['crate-stack', 8, 6], ['folders', 2, 7], ['extinguisher', -1, 5]],
-  cafeteria: [['pinboard', 1, 1, 2], ['plant-bush', 0, 5], ['plant-bush', -1, 4], ['extinguisher', -1, 7]],
-  workspace: [['pinboard', 3, 1, 2], ['plant-bush', 3, 7], ['plant-bush', 7, 7], ['folders', 9, 7], ['extinguisher', -1, 5]],
+  cafeteria: [['mug', 1, 2], ['mug', 6, 2], ['pinboard', 1, 1, 2], ['plant-bush', 0, 5], ['plant-bush', -1, 4], ['extinguisher', -1, 7]],
+  workspace: [['mug', 1, 2], ['mug', 6, 2], ['pinboard', 3, 1, 2], ['plant-bush', 3, 7], ['plant-bush', 7, 7], ['folders', 9, 7], ['extinguisher', -1, 5]],
 };
 
 function department(def, side) {
