@@ -391,15 +391,25 @@ function copier() {
 
 function pinboard() {
   return draw(32, 16, (d) => {
-    d.box(0, 1, 32, 14, 'b', { hl: 'W', sh: 'B' });
-    d.rect(3, 4, 7, 6, 'W');
-    d.rect(12, 5, 6, 7, 'm');
-    d.rect(20, 4, 8, 6, 'W');
-    d.rect(4, 6, 5, 1, 'g');
-    d.rect(21, 6, 6, 1, 'r');
-    d.px(6, 3, 'r');
-    d.px(15, 4, 'c');
-    d.px(24, 3, 'a');
+    d.rect(0, 0, 32, 16, 'B');
+    d.rect(0, 0, 32, 1, 'o');
+    d.rect(0, 15, 32, 1, 'o');
+    d.rect(1, 2, 30, 12, 'b');
+    for (let x = 3; x < 30; x += 4) d.px(x, 11 + (x % 3), 'B');
+    d.rect(3, 4, 6, 7, 'W');
+    d.rect(4, 6, 4, 1, 'g');
+    d.rect(4, 8, 3, 1, 'g');
+    d.rect(11, 4, 4, 4, 'm');
+    d.rect(12, 9, 4, 4, 'c');
+    d.rect(18, 3, 5, 8, 'W');
+    d.rect(19, 5, 3, 1, 'g');
+    d.rect(19, 7, 3, 1, 'g');
+    d.rect(25, 5, 5, 5, 'a');
+    d.rect(26, 6, 3, 3, 'W');
+    d.px(5, 3, 'r');
+    d.px(13, 3, 'r');
+    d.px(20, 2, 'c');
+    d.px(27, 4, 'm');
   });
 }
 
@@ -480,11 +490,31 @@ function plant() {
 
 function bin() {
   return draw(16, 16, (d) => {
-    d.box(4, 5, 8, 11, 'A', { hl: 'a' });
+    d.rect(4, 5, 8, 1, 'o');
     d.rect(3, 4, 10, 2, 'o');
+    d.rect(4, 4, 8, 1, 'W');
+    d.rect(5, 2, 3, 2, 'W');
+    d.rect(9, 3, 2, 1, 'P');
+    d.box(4, 5, 8, 11, 'A', { hl: 'a' });
+    d.rect(3, 4, 10, 1, 'o');
     d.rect(4, 4, 8, 1, 'a');
-    d.rect(7, 8, 1, 5, 'a');
-    d.rect(10, 8, 1, 5, 'a');
+    d.rect(6, 7, 1, 7, 'a');
+    d.rect(9, 7, 1, 7, 'a');
+    d.rect(4, 14, 8, 1, 'a');
+  });
+}
+
+function mug() {
+  return draw(16, 16, (d) => {
+    d.rect(4, 7, 8, 8, 'o');
+    d.rect(5, 8, 6, 6, 'p');
+    d.rect(5, 8, 6, 1, 'W');
+    d.rect(5, 11, 6, 2, 'a');
+    d.rect(12, 9, 2, 1, 'o');
+    d.rect(13, 10, 1, 3, 'o');
+    d.rect(12, 13, 2, 1, 'o');
+    d.rect(5, 6, 1, 1, 'P');
+    d.rect(8, 5, 1, 2, 'P');
   });
 }
 
@@ -1021,6 +1051,7 @@ export const SPRITES = {
   microwave: microwave(),
   pallet: pallet(),
   ledger: ledger(),
+  mug: mug(),
   extinguisher: extinguisher(),
   copier: copier(),
   pinboard: pinboard(),
