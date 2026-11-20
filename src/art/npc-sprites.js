@@ -98,7 +98,8 @@ function human(look, dir, frame) {
       }
     }
     // hair and face
-    const top = style === 'scarf' ? 'q' : 'h';
+    const cover = style === 'scarf' || style === 'hijab';
+    const top = cover ? 'q' : 'h';
     if (dir === 'down') {
       if (style !== 'bald') {
         d.rect(hx, y(2), hw, 3, top);
@@ -139,7 +140,7 @@ function human(look, dir, frame) {
       d.rect(hx + 3, y(8), 2, 1, look.beard ? 'k' : 's');
     } else if (dir === 'up') {
       d.rect(hx, y(2), hw, 7, style === 'bald' ? 's' : top);
-      if (style === 'scarf') d.rect(hx, y(9), hw, 1, 'q');
+      if (cover) d.rect(hx, y(9), hw, 1, 'q');
       if (style === 'long' || style === 'braids') d.rect(hx - 1, y(5), hw + 2, 9, 'h');
       if (style === 'bun') d.rect(hx + 2, y(0), 4, 1, 'h');
     } else {
@@ -168,6 +169,12 @@ function human(look, dir, frame) {
         d.rect(hx - 1, y(5), 1, 3, 'G');
         d.rect(hx + hw, y(5), 1, 3, 'G');
       }
+    }
+    if (style === 'hijab') {
+      // drape over shoulders and chest, framing the face with a lighter inner band
+      d.rect(lx - 1, y(10), lw + 2, 3, 'q');
+      if (!side) d.rect(lx + 1, y(13), lw - 2, 2, 'q');
+      if (dir === 'down') d.rect(hx + 1, y(4), hw - 2, 1, 'W');
     }
     wc ? chairLower(d, { side, dir, lx, lw, frame, y, look }) : legs(d, { side, lx, frame, y, look, sh });
     // walking aids

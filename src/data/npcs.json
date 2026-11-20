@@ -5,7 +5,7 @@
     { "id": "lobby-greeter-bot", "room": "lobby", "kind": "robot", "model": "screen", "color": "accent", "behavior": "idle" },
     { "id": "lobby-cane-1", "room": "lobby", "kind": "human", "behavior": "wander", "look": { "skin": "#ecc19a", "hair": "short", "hairColor": "#aeb4bc", "top": "leafDark", "bottom": "accentDark", "cane": "wood", "glasses": "clear", "build": "slim" } },
 
-    { "id": "lounge-scarf-1", "room": "lounge", "kind": "human", "behavior": "wander", "look": { "skin": "#bf8153", "hair": "scarf", "scarf": "tintLavender", "top": "accentDark", "bottom": "accent" } },
+    { "id": "lounge-scarf-1", "room": "lounge", "kind": "human", "behavior": "wander", "look": { "skin": "#bf8153", "hair": "hijab", "scarf": "tintLavender", "top": "accentDark", "bottom": "accent" } },
     { "id": "lounge-barista-bot", "room": "lounge", "kind": "robot", "model": "barista", "color": "tintMint", "accent": "red", "behavior": "idle" },
     { "id": "lounge-mothcat", "room": "lounge", "kind": "creature", "model": "mothcat", "color": "tintPeach", "accent": "accent", "behavior": "wander" },
     { "id": "lounge-prosthetic-1", "room": "lounge", "kind": "human", "behavior": "wander", "look": { "skin": "#d9a574", "hair": "bun", "hairColor": "#8a4a2c", "top": "red", "bottom": "accentDark", "prosthLeg": "right" } },
@@ -56,7 +56,7 @@
     { "id": "workspace-wheelchair-1", "room": "workspace", "kind": "human", "behavior": "wander", "look": { "skin": "#744526", "hair": "braids", "hairColor": "#3a2c28", "top": "tintSky", "bottom": "accentDark", "wheelchair": true } },
     { "id": "workspace-drone", "room": "workspace", "kind": "robot", "model": "drone", "color": "tintMint", "behavior": "wander" },
     { "id": "workspace-hauler", "room": "workspace", "kind": "robot", "model": "hauler", "color": "tintLavender", "behavior": "wander" },
-    { "id": "workspace-scarf-1", "room": "workspace", "kind": "human", "behavior": "idle", "look": { "skin": "#ecc19a", "hair": "scarf", "scarf": "red", "top": "accent", "bottom": "accentDark", "glasses": "clear" } },
+    { "id": "workspace-scarf-1", "room": "workspace", "kind": "human", "behavior": "idle", "look": { "skin": "#ecc19a", "hair": "hijab", "scarf": "tintSage", "top": "accent", "bottom": "accentDark", "glasses": "clear" } },
     { "id": "workspace-snowl", "room": "workspace", "kind": "creature", "model": "snowl", "color": "tintSky", "accent": "tintPeach", "behavior": "wander" },
     { "id": "workspace-prosth-arm-1", "room": "workspace", "kind": "human", "behavior": "wander", "look": { "skin": "#f6d5b8", "hair": "long", "hairColor": "#8a4a2c", "top": "leafDark", "bottom": "accentDark", "prosthArm": true, "build": "slim" } }
   ]
